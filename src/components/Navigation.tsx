@@ -60,14 +60,13 @@ export const Navigation = ({ activePage, setActivePage }: NavigationProps) => {
             <button
               key={link.id}
               onClick={() => setActivePage(link.id)}
-              className={`relative px-5 py-2.5 rounded-full text-[10px] font-black uppercase tracking-[0.2em] transition-all duration-500 ${
-                activePage === link.id ? "text-white" : "text-zinc-400 hover:text-black hover:bg-white/5"
-              }`}
+              className={`relative px-5 py-2.5 rounded-full text-[10px] font-black uppercase tracking-[0.2em] transition-all duration-500 ${activePage === link.id ? "text-white" : "text-zinc-400 hover:text-black hover:bg-white/5"
+                }`}
             >
               {activePage === link.id && (
                 <motion.div
                   layoutId="nav-bg"
-                  className="absolute inset-0 bg-blue-600 rounded-full -z-10 shadow-lg shadow-blue-900/20"
+                  className="absolute inset-0 bg-violet-600 rounded-full -z-10 shadow-lg shadow-violet-900/20"
                   transition={{ type: "spring", bounce: 0.2, duration: 0.8 }}
                 />
               )}
@@ -80,7 +79,7 @@ export const Navigation = ({ activePage, setActivePage }: NavigationProps) => {
         <div className="lg:hidden">
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 rounded-full bg-zinc-950/20 backdrop-blur-3xl border border-white/5 text-white"
+            className="p-2 rounded-full bg-zinc-950/20 backdrop-blur-3xl border border-white/5 text-zinc-900"
             aria-label="Toggle menu"
           >
             {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
@@ -94,15 +93,15 @@ export const Navigation = ({ activePage, setActivePage }: NavigationProps) => {
           className="hidden lg:flex items-center gap-12"
         >
           <div className="text-right flex flex-col items-end">
-            <div className="flex items-center gap-2" style={{color: '#A7A7B0'}}>
-               <Globe size={10} />
-               <span className="text-[8px] font-black uppercase tracking-widest">Global Ops</span>
+            <div className="flex items-center gap-2" style={{ color: '#A7A7B0' }}>
+              <Globe size={10} />
+              <span className="text-[8px] font-black uppercase tracking-widest">Global Ops</span>
             </div>
             <span className="text-[10px] font-black uppercase tracking-widest text-zinc-900">{time}</span>
           </div>
           <button
             onClick={() => setActivePage("contact")}
-            className="group flex items-center gap-3 bg-black text-white px-8 py-4 rounded-full text-[10px] font-black uppercase tracking-[0.3em] hover:bg-blue-600 transition-all shadow-xl active:scale-95"
+            className="group flex items-center gap-3 bg-violet-600 text-white px-8 py-4 rounded-full text-[10px] font-black uppercase tracking-[0.3em] hover:bg-violet-700 transition-all shadow-xl active:scale-95"
           >
             Project Inquiry <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
           </button>
@@ -145,11 +144,10 @@ export const Navigation = ({ activePage, setActivePage }: NavigationProps) => {
                       setActivePage(link.id);
                       setMobileMenuOpen(false);
                     }}
-                    className={`w-full text-left px-4 py-3 rounded-lg text-base font-medium transition-colors ${
-                      activePage === link.id
-                        ? "bg-blue-600 text-white"
+                    className={`w-full text-left px-4 py-3 rounded-lg text-base font-medium transition-colors ${activePage === link.id
+                        ? "bg-violet-600 text-white"
                         : "text-gray-700 hover:bg-gray-100"
-                    }`}
+                      }`}
                   >
                     {link.label}
                   </button>
@@ -163,7 +161,7 @@ export const Navigation = ({ activePage, setActivePage }: NavigationProps) => {
                     setActivePage("contact");
                     setMobileMenuOpen(false);
                   }}
-                  className="group flex items-center justify-center gap-3 bg-black text-white px-8 py-4 rounded-full text-sm font-black uppercase tracking-[0.3em] hover:bg-blue-600 transition-all shadow-xl"
+                  className="group flex items-center justify-center gap-3 bg-violet-600 text-white px-8 py-4 rounded-full text-sm font-black uppercase tracking-[0.3em] hover:bg-violet-700 transition-all shadow-xl"
                 >
                   Project Inquiry <ArrowUpRight size={14} />
                 </button>
@@ -172,7 +170,7 @@ export const Navigation = ({ activePage, setActivePage }: NavigationProps) => {
           </motion.div>
         )}
       </AnimatePresence>
-      
+
       {/* Overlay for mobile menu */}
       <AnimatePresence>
         {mobileMenuOpen && (

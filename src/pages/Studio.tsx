@@ -114,7 +114,7 @@ export const Studio = () => {
   };
 
   return (
-    <div className="bg-white selection:bg-blue-600 selection:text-white pt-48">
+    <div className="bg-white selection:bg-violet-600 selection:text-white pt-48">
       {/* 1. STUDIO INTRO */}
       <section className="px-6 md:px-12 mb-48">
         <div className="container mx-auto">
@@ -125,7 +125,7 @@ export const Studio = () => {
             className="max-w-[1400px]"
           >
             <div className="flex items-center gap-4 mb-12">
-              <span className="text-[10px] font-black uppercase tracking-[0.5em] text-blue-600">Established 2024</span>
+              <span className="text-[10px] font-black uppercase tracking-[0.5em] text-violet-600">Established 2024</span>
               <div className="h-px flex-1 bg-zinc-100" />
             </div>
 
@@ -158,7 +158,7 @@ export const Studio = () => {
       </section>
 
       {/* 2. THE MANIFESTO (Large Image & Text) */}
-      <section className="py-48 bg-black text-white px-6 md:px-12 overflow-hidden">
+      <section className="py-48 bg-zinc-50 text-zinc-900 px-6 md:px-12 overflow-hidden">
         <div className="container mx-auto">
           <div className="grid lg:grid-cols-12 gap-24 items-center">
             <div className="lg:col-span-7">
@@ -176,11 +176,11 @@ export const Studio = () => {
               </motion.div>
             </div>
             <div className="lg:col-span-5">
-              <span className="text-blue-500 font-bold uppercase tracking-[0.4em] text-[10px] block mb-12">Manifesto</span>
+              <span className="text-violet-600 font-bold uppercase tracking-[0.4em] text-[10px] block mb-12">Manifesto</span>
               <h2 className="text-5xl font-black uppercase italic tracking-tighter leading-none mb-12">
-                The machine <br /> has a <span className="text-blue-500">soul.</span>
+                The machine <br /> has a <span className="text-violet-600">soul.</span>
               </h2>
-              <div className="space-y-8 text-xl text-zinc-400 font-medium leading-relaxed">
+              <div className="space-y-8 text-xl text-zinc-500 font-medium leading-relaxed">
                 <p>We believe that Artificial Intelligence is the greatest creative tool ever conceived—not a replacement for the human spirit, but an amplifier for it.</p>
                 <p>Our role is to bridge the gap between algorithmic logic and human intuition, creating brands that aren't just seen, but felt.</p>
                 <p>Every line of code we write and every pixel we push serves one ultimate purpose: to make the future feel inevitable.</p>
@@ -203,12 +203,12 @@ export const Studio = () => {
               { icon: <Layers size={40} />, t: "Technical Depth", d: "Deep engineering meets high-end aesthetics." },
               { icon: <Zap size={40} />, t: "Radical Speed", d: "Autonomous workflows for lightning deployment." }
             ].map((v, i) => (
-              <div key={i} className="bg-white p-12 group hover:bg-black hover:text-white transition-all duration-500">
-                <div className="mb-12 text-blue-600 group-hover:text-white transition-colors">
+              <div key={i} className="bg-white p-12 group hover:bg-violet-600 hover:text-white transition-all duration-500">
+                <div className="mb-12 text-violet-600 group-hover:text-white transition-colors">
                   {v.icon}
                 </div>
                 <h3 className="text-2xl font-black uppercase italic mb-6">{v.t}</h3>
-                <p className="text-zinc-500 group-hover:text-zinc-400 leading-tight">{v.d}</p>
+                <p className="text-zinc-500 group-hover:text-violet-100 leading-tight">{v.d}</p>
               </div>
             ))}
           </div>
@@ -258,13 +258,13 @@ export const Studio = () => {
       <section className="py-48 px-6 md:px-12 bg-white">
         <div className="container mx-auto">
           <div className="flex justify-between items-center mb-24">
-             <h2 className="text-5xl font-black uppercase italic tracking-tighter">Leadership.</h2>
-             <Users size={32} />
+            <h2 className="text-5xl font-black uppercase italic tracking-tighter">Leadership.</h2>
+            <Users size={32} />
           </div>
           <div className="grid md:grid-cols-3 gap-12">
             {leadersInfo.map((person, i) => (
-              <div 
-                key={i} 
+              <div
+                key={i}
                 className="group cursor-pointer"
                 onClick={() => openLeaderProfile(person)}
               >
@@ -273,7 +273,7 @@ export const Studio = () => {
                 </div>
                 <h4 className="text-2xl font-black uppercase italic tracking-tighter mb-2">{person.name}</h4>
                 <span className="text-[10px] font-black uppercase tracking-widest text-zinc-400 block mb-4">{person.role}</span>
-                <a href={person.linkedin} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-blue-600 hover:text-blue-800 transition-colors">
+                <a href={person.linkedin} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-violet-600 hover:text-violet-800 transition-colors">
                   <Linkedin size={16} />
                   <span>LinkedIn</span>
                 </a>
@@ -304,14 +304,14 @@ export const Studio = () => {
               <div className="flex flex-col md:flex-row gap-8">
                 <div className="md:w-1/3 flex justify-center">
                   <div className="aspect-[3/4] rounded-3xl overflow-hidden grayscale">
-                    <ImageWithFallback 
-                      src={selectedLeader.img} 
-                      alt={selectedLeader.name} 
-                      className="w-full h-full object-cover" 
+                    <ImageWithFallback
+                      src={selectedLeader.img}
+                      alt={selectedLeader.name}
+                      className="w-full h-full object-cover"
                     />
                   </div>
                 </div>
-                
+
                 <div className="md:w-2/3">
                   <div className="mb-8">
                     <h3 className="text-xl font-black uppercase italic tracking-tighter mb-4">Education</h3>
@@ -360,13 +360,13 @@ export const Studio = () => {
                       ))}
                     </ul>
                   </div>
-                  
+
                   <div className="pt-4 border-t border-zinc-200">
-                    <a 
-                      href={selectedLeader.linkedin} 
-                      target="_blank" 
+                    <a
+                      href={selectedLeader.linkedin}
+                      target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-blue-600 hover:text-blue-800 transition-colors"
+                      className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-violet-600 hover:text-violet-800 transition-colors"
                     >
                       <Linkedin size={16} />
                       <span>Connect on LinkedIn</span>
@@ -379,7 +379,7 @@ export const Studio = () => {
             <div className="p-6 border-t border-zinc-200">
               <button
                 onClick={closeLeaderProfile}
-                className="w-full py-4 bg-black text-white font-black uppercase tracking-[0.2em] text-[10px] hover:bg-blue-600 transition-colors"
+                className="w-full py-4 bg-violet-600 text-white font-black uppercase tracking-[0.2em] text-[10px] hover:bg-violet-700 transition-colors"
               >
                 Close Profile
               </button>

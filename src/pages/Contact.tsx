@@ -121,7 +121,7 @@ export const Contact = () => {
             animate={{ opacity: 1, y: 0 }}
             className="text-center mb-12"
           >
-            <span className="text-blue-600 font-bold uppercase tracking-[0.5em] text-[10px] block mb-6">Get in touch</span>
+            <span className="text-violet-600 font-bold uppercase tracking-[0.5em] text-[10px] block mb-6">Get in touch</span>
             <h1 className="text-5xl font-black uppercase tracking-tighter italic leading-[0.8] mb-6">
               Start the <br /> <span className="text-zinc-200">Revolution.</span>
             </h1>
@@ -138,7 +138,7 @@ export const Contact = () => {
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
             >
-              <span className="text-blue-600 font-bold uppercase tracking-[0.5em] text-[10px] block mb-12">Get in touch</span>
+              <span className="text-violet-600 font-bold uppercase tracking-[0.5em] text-[10px] block mb-12">Get in touch</span>
               <h1 className="text-[clamp(4rem,10vw,8rem)] font-black uppercase tracking-tighter italic leading-[0.8] mb-12">
                 Start the <br /> <span className="text-zinc-200">Revolution.</span>
               </h1>
@@ -149,8 +149,8 @@ export const Contact = () => {
               <div className="space-y-16">
                 <div>
                   <h4 className="text-[10px] font-black uppercase tracking-[0.4em] text-zinc-300 mb-6">General Inquiries</h4>
-                  <p className="text-3xl font-black italic hover:text-blue-600 transition-colors cursor-pointer">Emails us: markinstudio64@gmail.com</p>
-                  <p className="text-3xl font-black italic hover:text-blue-600 transition-colors cursor-pointer">Call Us: +92 337 0660803</p>
+                  <p className="text-3xl font-black italic hover:text-violet-600 transition-colors cursor-pointer">Emails us: markinstudio64@gmail.com</p>
+                  <p className="text-3xl font-black italic hover:text-violet-600 transition-colors cursor-pointer">Call Us: +92 337 0660803</p>
                 </div>
               </div>
             </motion.div>
@@ -164,7 +164,7 @@ export const Contact = () => {
               className="bg-zinc-50 p-2 rounded-[4rem]"
             >
               <form
-                className="space-y-16 border-2 border-blue-600 p-8 sm:p-12 md:p-16 rounded-[4rem]"
+                className="space-y-16 border-2 border-violet-600 p-8 sm:p-12 md:p-16 rounded-[4rem]"
                 onSubmit={handleSubmit}
               >
                 <div id="service-selection">
@@ -175,7 +175,7 @@ export const Contact = () => {
                         key={s}
                         type="button"
                         onClick={() => toggleService(s)}
-                        className={`service-button px-8 py-4 rounded-full text-[10px] font-black uppercase tracking-widest transition-all ${selectedService.includes(s) ? "bg-black text-white" : "border border-zinc-200 text-zinc-500 hover:border-black"
+                        className={`service-button px-8 py-4 rounded-full text-[10px] font-black uppercase tracking-widest transition-all ${selectedService.includes(s) ? "bg-violet-600 text-white" : "border border-zinc-200 text-zinc-500 hover:border-violet-600 hover:text-violet-600"
                           }`}
                       >
                         {s}
@@ -201,7 +201,7 @@ export const Contact = () => {
                       placeholder="Full Name *"
                       value={formData.name}
                       onChange={handleInputChange}
-                      className="w-full bg-transparent border-b border-zinc-200 py-6 focus:outline-none focus:border-black transition-colors font-bold uppercase text-sm tracking-widest"
+                      className="w-full bg-transparent border-b border-zinc-200 py-6 focus:outline-none focus:border-violet-600 transition-colors font-bold uppercase text-sm tracking-widest"
                       required
                     />
                   </div>
@@ -213,7 +213,7 @@ export const Contact = () => {
                       placeholder="Email Address *"
                       value={formData.email}
                       onChange={handleInputChange}
-                      className="w-full bg-transparent border-b border-zinc-200 py-6 focus:outline-none focus:border-black transition-colors font-bold uppercase text-sm tracking-widest"
+                      className="w-full bg-transparent border-b border-zinc-200 py-6 focus:outline-none focus:border-violet-600 transition-colors font-bold uppercase text-sm tracking-widest"
                       required
                     />
                   </div>
@@ -225,7 +225,7 @@ export const Contact = () => {
                       placeholder="Company / Organization *"
                       value={formData.company}
                       onChange={handleInputChange}
-                      className="w-full bg-transparent border-b border-zinc-200 py-6 focus:outline-none focus:border-black transition-colors font-bold uppercase text-sm tracking-widest"
+                      className="w-full bg-transparent border-b border-zinc-200 py-6 focus:outline-none focus:border-violet-600 transition-colors font-bold uppercase text-sm tracking-widest"
                       required
                     />
                   </div>
@@ -237,7 +237,7 @@ export const Contact = () => {
                       placeholder="WhatsApp Number *"
                       value={formData.whatsapp}
                       onChange={handleInputChange}
-                      className="w-full bg-transparent border-b border-zinc-200 py-6 focus:outline-none focus:border-black transition-colors font-bold uppercase text-sm tracking-widest"
+                      className="w-full bg-transparent border-b border-zinc-200 py-6 focus:outline-none focus:border-violet-600 transition-colors font-bold uppercase text-sm tracking-widest"
                       required
                     />
                   </div>
@@ -250,7 +250,7 @@ export const Contact = () => {
                     rows={4}
                     value={formData.message}
                     onChange={handleInputChange}
-                    className="w-full bg-transparent border-b border-zinc-200 py-6 focus:outline-none focus:border-black transition-colors font-medium text-xl resize-none"
+                    className="w-full bg-transparent border-b border-zinc-200 py-6 focus:outline-none focus:border-violet-600 transition-colors font-medium text-xl resize-none"
                     placeholder="Briefly describe your goals..."
                     required
                   />
@@ -273,8 +273,8 @@ export const Contact = () => {
                     type="submit"
                     disabled={isSubmitting}
                     className={`w-full group h-24 rounded-full flex items-center justify-center gap-6 hover:scale-[1.02] transition-transform ${isSubmitting
-                        ? 'bg-gray-400 text-gray-200 cursor-not-allowed'
-                        : 'bg-black text-white hover:bg-blue-600'
+                      ? 'bg-gray-400 text-gray-200 cursor-not-allowed'
+                      : 'bg-violet-600 text-white hover:bg-violet-700'
                       }`}
                   >
                     <span className="font-black uppercase tracking-[0.4em] text-xs">
