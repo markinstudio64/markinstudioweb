@@ -1,2 +1,41 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+/* Open Sauce Sans */
+@font-face {
+  font-family: 'Open Sauce Sans';
+  src: url('/fonts/OpenSauceSans-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Open Sauce Sans';
+  src: url('/fonts/OpenSauceSans-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Open Sauce Sans';
+  src: url('/fonts/OpenSauceSans-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* Open Sauce One */
+@font-face {
+  font-family: 'Open Sauce One';
+  src: url('/fonts/OpenSauceOne-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Open Sauce One';
+  src: url('/fonts/OpenSauceOne-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* Open Sauce Two */
+@font-face {
+  font-family: 'Open Sauce Two';
+  src: url('/fonts/OpenSauceTwo-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
