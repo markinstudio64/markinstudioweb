@@ -1,26 +1,32 @@
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export default async function handler(req, res) {
-    if (req.method !== 'POST') {
-        return res.status(405).json({ error: 'Method not allowed' });
+  if (req.method !== 'POST') {
+    return res.status(405).json({ error: 'Method not allowed' });
+  }
+
+  const apiKey = process.env.RESEND_API_KEY;
+  if (!apiKey) {
+    console.error('Missing RESEND_API_KEY environment variable');
+    return res.status(500).json({ error: 'Server misconfiguration: Missing API Key' });
+  }
+
+  const resend = new Resend(apiKey);
+
+  try {
+    const { name, email, company, whatsapp, message, selectedService } = req.body;
+
+    // Validate required fields
+    if (!name || !email || !message) {
+      return res.status(400).json({ error: 'Missing required fields' });
     }
 
-    try {
-        const { name, email, company, whatsapp, message, selectedService } = req.body;
-
-        // Validate required fields
-        if (!name || !email || !message) {
-            return res.status(400).json({ error: 'Missing required fields' });
-        }
-
-        const { data, error } = await resend.emails.send({
-            from: 'Markin Studio <onboarding@resend.dev>',
-            to: ['markinstudio64@gmail.com'],
-            replyTo: email,
-            subject: `New Project Inquiry from ${name} - ${company || 'Individual'}`,
-            html: `
+    const { data, error } = await resend.emails.send({
+      from: 'Markin Studio <onboarding@resend.dev>',
+      to: ['markinstudio64@gmail.com'],
+      reply_to: email,
+      subject: `New Project Inquiry from ${name} - ${company || 'Individual'}`,
+      html: `
         <!DOCTYPE html>
         <html>
         <head>
@@ -74,16 +80,16 @@ export default async function handler(req, res) {
         </body>
         </html>
       `,
-        });
+    });
 
-        if (error) {
-            console.error('Resend error:', error);
-            return res.status(400).json({ error: error.message });
-        }
-
-        return res.status(200).json({ success: true, data });
-    } catch (error) {
-        console.error('Server error:', error);
-        return res.status(500).json({ error: 'Internal server error' });
+    if (error) {
+      console.error('Resend error:', error);
+      return res.status(400).json({ error: error.message });
     }
+
+    return res.status(200).json({ success: true, data });
+  } catch (error) {
+    console.error('Server error:', error);
+    return res.status(500).json({ error: 'Internal server error' });
+  }
 }
