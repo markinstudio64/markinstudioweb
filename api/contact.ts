@@ -5,6 +5,12 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
+  console.log('Environment check:');
+  console.log('RESEND_API_KEY present:', !!process.env.RESEND_API_KEY);
+  if (!process.env.RESEND_API_KEY) {
+    console.log('Available Env Vars:', Object.keys(process.env));
+  }
+
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) {
     console.error('Missing RESEND_API_KEY environment variable');
