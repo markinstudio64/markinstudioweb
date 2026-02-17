@@ -1,16 +1,35 @@
-/* Open Sauce Sans */
+/* ==========================================================================
+   Open Sauce Sans (Main Text Font)
+   ========================================================================== */
+
+@font-face {
+  font-family: 'Open Sauce Sans';
+  src: url('/fonts/OpenSauceSans-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
 @font-face {
   font-family: 'Open Sauce Sans';
   src: url('/fonts/OpenSauceSans-Regular.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
 }
+
 @font-face {
   font-family: 'Open Sauce Sans';
   src: url('/fonts/OpenSauceSans-Medium.ttf') format('truetype');
   font-weight: 500;
   font-style: normal;
 }
+
+@font-face {
+  font-family: 'Open Sauce Sans';
+  src: url('/fonts/OpenSauceSans-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
 @font-face {
   font-family: 'Open Sauce Sans';
   src: url('/fonts/OpenSauceSans-Bold.ttf') format('truetype');
@@ -18,13 +37,38 @@
   font-style: normal;
 }
 
-/* Open Sauce One */
+@font-face {
+  font-family: 'Open Sauce Sans';
+  src: url('/fonts/OpenSauceSans-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Open Sauce Sans';
+  src: url('/fonts/OpenSauceSans-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+/* ==========================================================================
+   Open Sauce One (Display / Monospace-ish)
+   ========================================================================== */
+
 @font-face {
   font-family: 'Open Sauce One';
   src: url('/fonts/OpenSauceOne-Regular.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
 }
+
+@font-face {
+  font-family: 'Open Sauce One';
+  src: url('/fonts/OpenSauceOne-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
 @font-face {
   font-family: 'Open Sauce One';
   src: url('/fonts/OpenSauceOne-Bold.ttf') format('truetype');
@@ -32,10 +76,20 @@
   font-style: normal;
 }
 
-/* Open Sauce Two */
+/* ==========================================================================
+   Open Sauce Two (Alternative Sans)
+   ========================================================================== */
+
 @font-face {
   font-family: 'Open Sauce Two';
   src: url('/fonts/OpenSauceTwo-Regular.ttf') format('truetype');
   font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Open Sauce Two';
+  src: url('/fonts/OpenSauceTwo-Bold.ttf') format('truetype');
+  font-weight: 700;
   font-style: normal;
 }
