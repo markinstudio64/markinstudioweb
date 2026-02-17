@@ -1,12 +1,21 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, Suspense, lazy } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Navigation } from "./components/Navigation";
-import { Home } from "./pages/Home";
-import { Services } from "./pages/Services";
-import { Work } from "./pages/Work";
-import { Studio } from "./pages/Studio";
-import { Contact } from "./pages/Contact";
-import { Journals } from "./pages/Journals";
+
+// Lazy load pages for better performance
+const Home = lazy(() => import("./pages/Home").then(module => ({ default: module.Home })));
+const Services = lazy(() => import("./pages/Services").then(module => ({ default: module.Services })));
+const Work = lazy(() => import("./pages/Work").then(module => ({ default: module.Work })));
+const Studio = lazy(() => import("./pages/Studio").then(module => ({ default: module.Studio })));
+const Contact = lazy(() => import("./pages/Contact").then(module => ({ default: module.Contact })));
+const Journals = lazy(() => import("./pages/Journals").then(module => ({ default: module.Journals })));
+
+// Loading component
+const PageLoader = () => (
+  <div className="flex items-center justify-center p-20">
+    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-black"></div>
+  </div>
+);
 
 function App() {
   // Initialize activePage from localStorage to persist across reloads
@@ -33,29 +42,35 @@ function App() {
   }, [activePage]);
 
   const renderPage = () => {
-    switch (activePage) {
-      case "home":
-        return <Home key="home" setActivePage={setActivePage} />;
-      case "services":
-        return <Services key="services" setActivePage={setActivePage} />;
-      case "work":
-        return <Work key="work" />;
-      case "studio":
-        return <Studio key="studio" />;
-      case "contact":
-        return <Contact key="contact" />;
-      case "journals":
-        return <Journals key="journals" setActivePage={setActivePage} />;
-      default:
-        return <Home key="home" setActivePage={setActivePage} />;
-    }
+    return (
+      <Suspense fallback={<PageLoader />}>
+        {(() => {
+          switch (activePage) {
+            case "home":
+              return <Home key="home" setActivePage={setActivePage} />;
+            case "services":
+              return <Services key="services" setActivePage={setActivePage} />;
+            case "work":
+              return <Work key="work" />;
+            case "studio":
+              return <Studio key="studio" />;
+            case "contact":
+              return <Contact key="contact" />;
+            case "journals":
+              return <Journals key="journals" setActivePage={setActivePage} />;
+            default:
+              return <Home key="home" setActivePage={setActivePage} />;
+          }
+        })()}
+      </Suspense>
+    );
   };
 
   return (
     <div className="bg-white font-sans selection:bg-blue-600 selection:text-white">
       <div className="noise-overlay" />
       <Navigation activePage={activePage} setActivePage={setActivePage} />
-      
+
       <AnimatePresence mode="wait">
         <motion.div
           key={activePage}
@@ -72,22 +87,22 @@ function App() {
         <div className="container mx-auto">
           {/* GIANT KINETIC TEXT */}
           <div className="mb-48 relative">
-            <motion.div 
+            <motion.div
               initial={{ x: "-50%" }}
               whileInView={{ x: "0%" }}
               transition={{ duration: 2, ease: [0.16, 1, 0.3, 1] }}
               className="flex whitespace-nowrap"
             >
-               <h2 className="text-[clamp(4rem,22vw,24rem)] font-black uppercase tracking-tighter italic leading-[0.7] text-zinc-900/50">
-                  Engineering Value • Engineering Value • Engineering Value
-               </h2>
+              <h2 className="text-[clamp(4rem,22vw,24rem)] font-black uppercase tracking-tighter italic leading-[0.7] text-zinc-900/50">
+                Engineering Value • Engineering Value • Engineering Value
+              </h2>
             </motion.div>
           </div>
-          
+
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-24 pt-24 border-t border-zinc-900">
             <div className="space-y-12">
               <div className="flex items-center gap-3">
-                 <span className="text-xl md:text-2xl font-black tracking-tighter uppercase leading-none text-white">
+                <span className="text-xl md:text-2xl font-black tracking-tighter uppercase leading-none text-white">
                   Markin Studio<span className="text-blue-600 text-xs">®</span>
                 </span>
               </div>
@@ -123,9 +138,9 @@ function App() {
                   { name: "Dribbble", url: "https://dribbble.com/markin-studio" }
                 ].map(item => (
                   <li key={item.name}>
-                    <a 
-                      href={item.url} 
-                      target="_blank" 
+                    <a
+                      href={item.url}
+                      target="_blank"
                       rel="noopener noreferrer"
                       className="text-base md:text-2xl font-black uppercase italic hover:text-blue-600 transition-colors block"
                     >
@@ -144,7 +159,7 @@ function App() {
               </div>
 
               <div className="pt-12 border-t border-zinc-900">
-                 <p className="text-[8px] font-black uppercase tracking-[0.4em] text-zinc-800">
+                <p className="text-[8px] font-black uppercase tracking-[0.4em] text-zinc-800">
                   © 2026 MARKIN AGENCY — ALL RIGHTS RESERVED
                 </p>
               </div>
