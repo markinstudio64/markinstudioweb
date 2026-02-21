@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, Suspense, lazy } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Navigation } from "./components/Navigation";
+import { Analytics } from "@vercel/analytics/react";
 
 // Lazy load pages for better performance
 const Home = lazy(() => import("./pages/Home").then(module => ({ default: module.Home })));
@@ -167,6 +168,7 @@ function App() {
           </div>
         </div>
       </footer>
+      <Analytics />
     </div>
   );
 }
