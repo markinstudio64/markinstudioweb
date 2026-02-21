@@ -10,8 +10,8 @@
 }
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
+  --foreground-rgb: 15, 7, 32;
+  --background-start-rgb: 255, 255, 255;
   --background-end-rgb: 255, 255, 255;
 }
 
@@ -20,7 +20,7 @@ body {
   background: white;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  cursor: auto;
+  overflow-x: hidden;
 }
 
 a,
@@ -28,7 +28,7 @@ button {
   cursor: pointer;
 }
 
-/* Texture Overlay for SoftRiver aesthetic */
+/* Texture Overlay */
 .noise-overlay {
   position: fixed;
   top: 0;
@@ -37,36 +37,76 @@ button {
   height: 100%;
   pointer-events: none;
   z-index: 9999;
-  opacity: 0.03;
-  background-image: url("https://www.transparenttextures.com/patterns/pinstriped-suit.png");
-}
-
-.custom-cursor {
-  mix-blend-mode: difference;
+  opacity: 0.15;
+  background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+  filter: contrast(120%) brightness(100%);
 }
 
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 4px;
 }
 
 ::-webkit-scrollbar-track {
-  background: transparent;
+  background: white;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #e2e2e2;
+  background: #f1f1f1;
   border-radius: 10px;
+  transition: background 0.3s;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #888;
+  background: #7C3AED;
 }
 
 /* Custom Grid Background */
 .bg-grid {
-  background-size: 50px 50px;
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
-  mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+  background-size: 80px 80px;
+  background-image: linear-gradient(to right, rgba(124, 58, 237, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(124, 58, 237, 0.02) 1px, transparent 1px);
+}
+
+/* Glassmorphism Utilities */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.glass-pill {
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Typography Utilities */
+.text-gradient {
+  background: linear-gradient(135deg, #7C3AED 0%, #A78BFA 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.link-underline {
+  position: relative;
+}
+
+.link-underline::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 1px;
+  bottom: -4px;
+  left: 0;
+  background-color: currentColor;
+  transform-origin: bottom right;
+  transition: transform 0.4s ease-out;
+}
+
+.link-underline:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
 }

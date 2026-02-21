@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 import { ArrowUpRight, List, Grid, X } from "lucide-react";
+import { CharReveal } from "../components/TextReveal";
 
 // Define project type
 interface Project {
@@ -11,6 +12,8 @@ interface Project {
   img: string;
   year: string;
   images: string[];
+  client: string;
+  challenge: string;
 }
 
 // Modal component moved outside (required for proper typing)
@@ -25,13 +28,13 @@ const ProjectDetailModal = ({
   const projectDetails = {
     ...project,
     description: project.cat === "branding"
-      ? "A comprehensive branding solution that redefined the client's market presence. Our approach involved developing a multi-dimensional system designed to thrive across all digital and physical touchpoints."
+      ? `A comprehensive branding solution for ${project.client} that redefined their market presence. Our approach involved developing a multi-dimensional system designed to thrive across all digital and physical touchpoints.`
       : project.cat === "automation"
-        ? "An AI-powered automation system engineered for rapid scale and technical excellence. We integrated cognitive frameworks that transform operational efficiency through autonomous workflows."
+        ? `An AI-powered automation system engineered for rapid scale and technical excellence for ${project.client}. We integrated cognitive frameworks that transform operational efficiency through autonomous workflows.`
         : project.cat === "product"
-          ? "A user-centered product design focused on creating intuitive interfaces for complex systems. We engineering seamless user experiences through rigorous research and iterative prototyping."
+          ? `A user-centered product design for ${project.client} focused on creating intuitive interfaces for complex systems. We engineered seamless user experiences through rigorous research and iterative prototyping.`
           : project.cat === "motion"
-            ? "A dynamic motion system that brings static identities to life. This project showcases our expertise in building emotional resonance through advanced animation and cinematic storytelling."
+            ? `A dynamic motion system that brings static identities to life for ${project.client}. This project showcases our expertise in building emotional resonance through advanced animation and cinematic storytelling.`
             : "A comprehensive project delivering high-impact results through our multidisciplinary approach to engineering and design excellence.",
     services: project.cat === "branding"
       ? ["Strategic Branding", "Visual Identity", "Typography Systems", "Brand Guidelines"]
@@ -78,6 +81,12 @@ const ProjectDetailModal = ({
               <p className="text-3xl md:text-5xl font-bold tracking-tighter text-brand-dark leading-[1.05] mb-12 uppercase">
                 {projectDetails.description}
               </p>
+              <div className="mt-12 p-10 bg-[#F9F9FB] rounded-[2.5rem] border border-zinc-50">
+                <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-brand-violet block mb-6">Discovery & Challenge</span>
+                <p className="text-lg text-zinc-600 font-bold uppercase leading-relaxed tracking-tight">
+                  {project.challenge}
+                </p>
+              </div>
             </div>
             <div className="lg:col-span-4 space-y-16">
               <div>
@@ -113,7 +122,7 @@ const ProjectDetailModal = ({
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.1, duration: 0.8 }}
-                  className="break-inside-avoid rounded-[3rem] overflow-hidden bg-zinc-50 group border border-zinc-50 shadow-sm"
+                  className="break-inside-avoid rounded-[3.5rem] overflow-hidden bg-zinc-50 group border border-zinc-100 shadow-sm relative"
                 >
                   <ImageWithFallback
                     src={img}
@@ -150,51 +159,63 @@ export const Work = () => {
   const projects: Project[] = [
     {
       id: "01",
-      title: "Flux Core",
-      cat: "automation",
+      title: "Aether Protocol",
+      cat: "branding",
+      client: "Aether Labs",
       img: "/assets/p1.jpg",
       year: "2026",
-      images: ["/assets/p1.jpg", "/assets/p2.jpg", "/assets/p3.jpg", "/assets/img20.png", "/assets/img21.png", "/assets/img22.png"]
+      challenge: "Developing a decentralized identity for a next-gen finance protocol that commands authority and technical precision.",
+      images: ["/assets/p1.jpg", "/assets/p2.jpg", "/assets/p3.jpg", "/assets/img20.png"]
     },
     {
       id: "02",
-      title: "Neon Pulse",
-      cat: "branding",
+      title: "NeuroForm AI",
+      cat: "product",
+      client: "BioTech Systems",
       img: "/assets/p2.jpg",
       year: "2026",
-      images: ["/assets/p2.jpg", "/assets/p1.jpg", "/assets/p3.jpg", "/assets/img21.png", "/assets/img20.png", "/assets/img22.png"]
+      challenge: "Engineering an interface for complex biological data visualization through clinical precision and human emotion.",
+      images: ["/assets/p2.jpg", "/assets/p1.jpg", "/assets/p3.jpg", "/assets/img21.png"]
     },
     {
       id: "03",
-      title: "Alpha Studio",
-      cat: "product",
+      title: "Synthetix Motion",
+      cat: "motion",
+      client: "Hyperion Corp",
       img: "/assets/p3.jpg",
       year: "2025",
-      images: ["/assets/p3.jpg", "/assets/p1.jpg", "/assets/p2.jpg", "/assets/img22.png", "/assets/img21.png", "/assets/img20.png"]
+      challenge: "Visualizing high-speed automation workflows through a dynamic motion system that brings technical logic to life.",
+      images: ["/assets/p3.jpg", "/assets/p1.jpg", "/assets/p2.jpg", "/assets/img22.png"]
     },
     {
       id: "04",
-      title: "Kinetik",
-      cat: "motion",
+      title: "Vanguard Audit",
+      cat: "branding",
+      client: "Vanguard Global",
       img: "/assets/img20.png",
       year: "2025",
-      images: ["/assets/img20.png", "/assets/p1.jpg", "/assets/p2.jpg", "/assets/p3.jpg", "/assets/img21.png", "/assets/img22.png"]
+      challenge: "A complete visual overhaul for a global consultancy firm, shifting their identity toward architectural authority.",
+      images: ["/assets/img20.png", "/assets/p1.jpg", "/assets/p2.jpg", "/assets/p3.jpg"]
     },
     {
       id: "05",
-      title: "Omni Labs",
-      cat: "automation",
+      title: "Lumina Immersive",
+      cat: "product",
+      client: "Lumina Estate",
       img: "/assets/img21.png",
       year: "2025",
-      images: ["/assets/img21.png", "/assets/p1.jpg", "/assets/p2.jpg", "/assets/p3.jpg", "/assets/img20.png", "/assets/img22.png"]
+      challenge: "Creating a high-end immersive web experience for luxury real estate, bridging 3D engineering with premium aesthetics.",
+      images: ["/assets/img21.png", "/assets/p1.jpg", "/assets/p2.jpg", "/assets/p3.jpg"]
     },
     {
       id: "06",
-      title: "Zenith",
-      cat: "branding",
+      title: "Core Intelligence",
+      cat: "automation",
+      client: "Core Logistics",
       img: "/assets/img22.png",
       year: "2024",
-      images: ["/assets/img22.png", "/assets/p1.jpg", "/assets/p2.jpg", "/assets/p3.jpg", "/assets/img20.png", "/assets/img21.png"]
+      challenge: "Designing an autonomous agent framework for supply chain optimization, focusing on clinical efficiency and scale.",
+      images: ["/assets/img22.png", "/assets/p1.jpg", "/assets/p2.jpg", "/assets/p3.jpg"]
     }
   ];
 
@@ -216,13 +237,19 @@ export const Work = () => {
               <div className="h-px w-24 bg-zinc-100" />
             </div>
 
-            <h1 className="text-6xl md:text-[9rem] font-bold tracking-tighter leading-[0.85] text-brand-dark uppercase">
-              Proven <br /> <span className="text-zinc-100">Excellence.</span>
-            </h1>
+            <CharReveal
+              text="Proven"
+              className="text-6xl md:text-[9rem] font-bold tracking-tighter leading-[0.85] text-brand-dark uppercase"
+            />
+            <CharReveal
+              text="Excellence."
+              delay={0.5}
+              className="text-6xl md:text-[9rem] font-bold tracking-tighter leading-[0.85] text-zinc-100 uppercase"
+            />
           </motion.div>
           <div className="flex flex-col items-end lg:max-w-xs">
-            <span className="text-7xl font-bold text-zinc-100 mb-8">200+</span>
-            <p className="text-right text-zinc-500 font-medium leading-relaxed text-lg">We've partnered with visionaries to engineer digital legacies that command digital authority.</p>
+            <span className="text-7xl font-bold text-zinc-100 mb-8 tracking-tighter">200+</span>
+            <p className="text-right text-zinc-500 font-bold uppercase tracking-tight leading-snug text-sm">We've partnered with visionaries to engineer digital legacies that command architectural authority.</p>
           </div>
         </div>
 
