@@ -1,13 +1,11 @@
 import { Resend } from 'resend';
+import type { VercelRequest, VercelResponse } from '@vercel/node';
 
-export default async function handler(req, res) {
+export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  // CRITICAL: We normally use process.env.RESEND_API_KEY.
-  // However, since the environment variable is missing on Vercel, we fallback to this hardcoded key.
-  // WARNING: Ideally, you should remove this and set RESEND_API_KEY in Vercel Settings -> Environment Variables.
   const apiKey = process.env.RESEND_API_KEY || 're_JpQnLSBE_NjCxBDUwnb4uRrfuBxjdKpEk';
 
   if (!apiKey) {
@@ -18,7 +16,14 @@ export default async function handler(req, res) {
   const resend = new Resend(apiKey);
 
   try {
-    const { name, email, company, whatsapp, message, selectedService } = req.body;
+    const { name, email, company, whatsapp, message, selectedService } = req.body as {
+      name: string;
+      email: string;
+      company?: string;
+      whatsapp?: string;
+      message: string;
+      selectedService?: string;
+    };
 
     // Validate required fields
     if (!name || !email || !message) {
@@ -54,27 +59,22 @@ export default async function handler(req, res) {
                 <div class="label">Name</div>
                 <div class="value">${name}</div>
               </div>
-              
               <div class="field">
                 <div class="label">Email</div>
                 <div class="value">${email}</div>
               </div>
-
               <div class="field">
                 <div class="label">Company</div>
                 <div class="value">${company || 'N/A'}</div>
               </div>
-
               <div class="field">
                 <div class="label">WhatsApp</div>
                 <div class="value">${whatsapp || 'N/A'}</div>
               </div>
-
               <div class="field">
                 <div class="label">Services</div>
                 <div class="value">${selectedService || 'None'}</div>
               </div>
-
               <div class="field">
                 <div class="label">Message</div>
                 <div class="value">${message.replace(/\n/g, '<br>')}</div>
