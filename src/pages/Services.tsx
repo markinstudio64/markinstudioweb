@@ -48,7 +48,7 @@ export const Services = ({ setActivePage }: ServicesProps) => {
   };
 
   return (
-    <div className="bg-white selection:bg-black selection:text-white pt-48">
+    <div className="bg-white selection:bg-brand-violet selection:text-white pt-48">
       <div className="container mx-auto px-6 md:px-12">
         {/* 1. SERVICES INTRO */}
         <section className="mb-48">
@@ -59,27 +59,27 @@ export const Services = ({ setActivePage }: ServicesProps) => {
             className="max-w-[1400px]"
           >
             <div className="flex items-center gap-4 mb-12">
-              <span className="text-xs font-bold uppercase tracking-[0.2em] text-zinc-400">Our Services</span>
+              <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-brand-violet">Full Spectrum</span>
               <div className="h-px flex-1 bg-zinc-100" />
             </div>
 
-            <h1 className="text-6xl md:text-9xl font-bold tracking-tight leading-[0.9] mb-24 text-zinc-900 uppercase">
-              Full Spectrum <br /> <span className="text-zinc-300">Solutions.</span>
+            <h1 className="text-6xl md:text-[9rem] font-bold tracking-tighter leading-[0.85] mb-24 text-brand-dark uppercase">
+              Engineering <br /> <span className="text-zinc-100">Excellence.</span>
             </h1>
 
-            <div className="grid lg:grid-cols-2 gap-24 items-start border-t border-zinc-100 pt-12">
-              <p className="text-3xl md:text-5xl font-bold tracking-tight leading-[1.1] text-zinc-900">
-                A multidisciplinary engineering and design firm operating at the edge of cultural and technological shifts.
+            <div className="grid lg:grid-cols-2 gap-24 items-start border-t border-zinc-100 pt-16">
+              <p className="text-3xl md:text-5xl font-bold tracking-tighter leading-[1.05] text-brand-dark uppercase">
+                A multidisciplinary firm operating at the intersection of <span className="text-brand-violet">human intuition</span> and tech precision.
               </p>
               <div className="space-y-12">
                 <p className="text-xl text-zinc-500 leading-relaxed font-medium">
-                  We specialize in building the cognitive and visual frameworks for the next generation of industry leaders. Our work is defined by technical excellence and emotional resonance.
+                  We architect the visual and cognitive frameworks for the next generation of industry leaders. Our work is defined by clinical excellence and high-impact emotional resonance.
                 </p>
                 <button
                   onClick={() => setActivePage("contact")}
-                  className="bg-black text-white px-12 py-5 rounded-full font-bold flex items-center justify-center gap-4 group hover:bg-zinc-800 transition-all text-xl shadow-2xl"
+                  className="bg-brand-violet text-white px-12 py-6 rounded-full font-bold flex items-center justify-center gap-4 group hover:bg-brand-dark transition-all text-lg shadow-[0_20px_40px_-10px_rgba(124,58,237,0.3)]"
                 >
-                  Let's Discuss Your Project
+                  <span className="uppercase tracking-widest">Start Your Project</span>
                   <div className="bg-white/10 p-1 rounded-full group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">
                     <ArrowRight size={22} className="-rotate-45" />
                   </div>
@@ -99,35 +99,36 @@ export const Services = ({ setActivePage }: ServicesProps) => {
               viewport={{ once: true }}
               className="grid lg:grid-cols-12 gap-12 lg:gap-24 items-start"
             >
-              <div className="lg:col-span-5">
+              <div className="lg:col-span-5 sticky top-32">
                 <div className="mb-12 flex items-center gap-6">
-                  <div className="p-5 rounded-3xl bg-zinc-50 border border-zinc-100">
+                  <div className="p-6 rounded-[2rem] bg-zinc-50 border border-zinc-100 text-brand-violet shadow-sm">
                     {block.icon}
                   </div>
-                  <span className="text-zinc-300 font-bold text-2xl">0{i + 1}</span>
+                  <span className="text-zinc-200 font-bold text-4xl">0{i + 1}</span>
                 </div>
-                <h2 className="text-5xl md:text-7xl font-bold tracking-tight text-zinc-900 mb-8 uppercase">{block.title}</h2>
-                <p className="text-blue-600 font-bold uppercase tracking-widest text-sm mb-12">{block.subtitle}</p>
-                <p className="text-xl text-zinc-500 leading-relaxed font-medium mb-12">{block.desc}</p>
+                <h2 className="text-5xl md:text-[5.5rem] font-bold tracking-tighter text-brand-dark mb-10 uppercase leading-[0.9]">{block.title}</h2>
+                <p className="text-brand-violet font-bold uppercase tracking-[0.3em] text-[10px] mb-12">{block.subtitle}</p>
+                <p className="text-xl text-zinc-500 leading-relaxed font-medium mb-12 max-w-lg">{block.desc}</p>
               </div>
               <div className="lg:col-span-7 pt-12 lg:pt-32">
                 <div className="grid md:grid-cols-2 gap-8">
                   {block.features.map((feature, idx) => (
-                    <div key={idx} className="group p-10 border border-zinc-100 rounded-[2rem] hover:bg-zinc-50 transition-all duration-500 hover:border-zinc-200">
+                    <div key={idx} className="group p-10 border border-zinc-50 rounded-[2.5rem] bg-[#F9F9FB] hover:bg-white hover:shadow-2xl hover:shadow-zinc-200/50 transition-all duration-500">
                       <div className="flex justify-between items-center mb-6">
-                        <h4 className="text-xl font-bold uppercase tracking-tight group-hover:text-blue-600 transition-colors">{feature}</h4>
-                        <Plus size={20} className="text-zinc-300 group-hover:text-black transition-colors" />
+                        <h4 className="text-xl font-bold uppercase tracking-tight group-hover:text-brand-violet transition-colors duration-500">{feature}</h4>
+                        <Plus size={22} className="text-zinc-300 group-hover:text-brand-violet transition-all duration-500" />
                       </div>
-                      <div className="h-0.5 w-0 bg-black group-hover:w-full transition-all duration-700" />
+                      <div className="h-px w-0 bg-brand-violet/20 group-hover:w-full transition-all duration-700" />
                     </div>
                   ))}
                 </div>
 
-                <div className="mt-24 p-12 bg-zinc-50 rounded-[3rem] border border-zinc-100">
-                  <h5 className="text-xs font-bold uppercase tracking-widest text-zinc-400 mb-8">Selected Tech Stack</h5>
-                  <div className="flex flex-wrap gap-10 opacity-30">
-                    {["Vite", "OpenAI", "PyTorch", "TailwindCSS", "Motion", "Figma"].map(tech => (
-                      <span key={tech} className="text-sm font-bold uppercase tracking-widest text-zinc-900">{tech}</span>
+                <div className="mt-24 p-12 bg-brand-dark rounded-[3.5rem] border border-brand-violet/10 relative overflow-hidden group">
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-brand-violet/10 blur-3xl" />
+                  <h5 className="text-[10px] font-bold uppercase tracking-[0.3em] text-zinc-500 mb-10">Integration Ecosystem</h5>
+                  <div className="flex flex-wrap gap-x-12 gap-y-8">
+                    {["Next.js", "GPT-4o", "Claude 3.5", "Tailwind", "Framer", "Swift"].map(tech => (
+                      <span key={tech} className="text-xs font-bold uppercase tracking-widest text-white/40 group-hover:text-white transition-colors duration-500">{tech}</span>
                     ))}
                   </div>
                 </div>
@@ -142,26 +143,26 @@ export const Services = ({ setActivePage }: ServicesProps) => {
             viewport={{ once: true }}
             className="grid lg:grid-cols-12 gap-12 lg:gap-24 items-start"
           >
-            <div className="lg:col-span-5">
+            <div className="lg:col-span-5 sticky top-32">
               <div className="mb-12 flex items-center gap-6">
-                <div className="p-5 rounded-3xl bg-zinc-50 border border-zinc-100">
+                <div className="p-6 rounded-[2rem] bg-zinc-50 border border-zinc-100 text-brand-violet shadow-sm">
                   {startupServiceBlock.icon}
                 </div>
-                <span className="text-zinc-300 font-bold text-2xl">03</span>
+                <span className="text-zinc-200 font-bold text-4xl">04</span>
               </div>
-              <h2 className="text-5xl md:text-7xl font-bold tracking-tight text-zinc-900 mb-8 uppercase">{startupServiceBlock.title}</h2>
-              <p className="text-blue-600 font-bold uppercase tracking-widest text-sm mb-12">{startupServiceBlock.subtitle}</p>
-              <p className="text-xl text-zinc-500 leading-relaxed font-medium mb-12">{startupServiceBlock.desc}</p>
+              <h2 className="text-5xl md:text-[5.5rem] font-bold tracking-tighter text-brand-dark mb-8 uppercase leading-[0.9]">{startupServiceBlock.title}</h2>
+              <p className="text-brand-violet font-bold uppercase tracking-[0.3em] text-[10px] mb-12">{startupServiceBlock.subtitle}</p>
+              <p className="text-xl text-zinc-500 leading-relaxed font-medium mb-12 max-w-lg">{startupServiceBlock.desc}</p>
             </div>
             <div className="lg:col-span-7 pt-12 lg:pt-32">
               <div className="grid md:grid-cols-2 gap-8">
                 {startupServiceBlock.features.map((feature, idx) => (
-                  <div key={idx} className="group p-10 border border-zinc-100 rounded-[2rem] hover:bg-zinc-50 transition-all duration-500 hover:border-zinc-200">
+                  <div key={idx} className="group p-10 border border-zinc-50 rounded-[2.5rem] bg-[#F9F9FB] hover:bg-white hover:shadow-2xl hover:shadow-zinc-200/50 transition-all duration-500">
                     <div className="flex justify-between items-center mb-6">
-                      <h4 className="text-xl font-bold uppercase tracking-tight group-hover:text-blue-600 transition-colors">{feature}</h4>
-                      <Plus size={20} className="text-zinc-300 group-hover:text-black transition-colors" />
+                      <h4 className="text-xl font-bold uppercase tracking-tight group-hover:text-brand-violet transition-colors">{feature}</h4>
+                      <Plus size={22} className="text-zinc-300 group-hover:text-brand-violet transition-all duration-500" />
                     </div>
-                    <div className="h-0.5 w-0 bg-black group-hover:w-full transition-all duration-700" />
+                    <div className="h-px w-0 bg-brand-violet/20 group-hover:w-full transition-all duration-700" />
                   </div>
                 ))}
               </div>
@@ -175,26 +176,26 @@ export const Services = ({ setActivePage }: ServicesProps) => {
             viewport={{ once: true }}
             className="grid lg:grid-cols-12 gap-12 lg:gap-24 items-start"
           >
-            <div className="lg:col-span-5">
+            <div className="lg:col-span-5 sticky top-32">
               <div className="mb-12 flex items-center gap-6">
-                <div className="p-5 rounded-3xl bg-zinc-50 border border-zinc-100">
+                <div className="p-6 rounded-[2rem] bg-zinc-50 border border-zinc-100 text-brand-violet shadow-sm">
                   {consultancyServiceBlock.icon}
                 </div>
-                <span className="text-zinc-300 font-bold text-2xl">04</span>
+                <span className="text-zinc-200 font-bold text-4xl">05</span>
               </div>
-              <h2 className="text-5xl md:text-7xl font-bold tracking-tight text-zinc-900 mb-8 uppercase">{consultancyServiceBlock.title}</h2>
-              <p className="text-blue-600 font-bold uppercase tracking-widest text-sm mb-12">{consultancyServiceBlock.subtitle}</p>
-              <p className="text-xl text-zinc-500 leading-relaxed font-medium mb-12">{consultancyServiceBlock.desc}</p>
+              <h2 className="text-5xl md:text-[5.5rem] font-bold tracking-tighter text-brand-dark mb-8 uppercase leading-[0.9]">{consultancyServiceBlock.title}</h2>
+              <p className="text-brand-violet font-bold uppercase tracking-[0.3em] text-[10px] mb-12">{consultancyServiceBlock.subtitle}</p>
+              <p className="text-xl text-zinc-500 leading-relaxed font-medium mb-12 max-w-lg">{consultancyServiceBlock.desc}</p>
             </div>
             <div className="lg:col-span-7 pt-12 lg:pt-32">
               <div className="grid md:grid-cols-2 gap-8">
                 {consultancyServiceBlock.features.map((feature, idx) => (
-                  <div key={idx} className="group p-10 border border-zinc-100 rounded-[2rem] hover:bg-zinc-50 transition-all duration-500 hover:border-zinc-200">
+                  <div key={idx} className="group p-10 border border-zinc-50 rounded-[2.5rem] bg-[#F9F9FB] hover:bg-white hover:shadow-2xl hover:shadow-zinc-200/50 transition-all duration-500">
                     <div className="flex justify-between items-center mb-6">
-                      <h4 className="text-xl font-bold uppercase tracking-tight group-hover:text-blue-600 transition-colors">{feature}</h4>
-                      <Plus size={20} className="text-zinc-300 group-hover:text-black transition-colors" />
+                      <h4 className="text-xl font-bold uppercase tracking-tight group-hover:text-brand-violet transition-colors">{feature}</h4>
+                      <Plus size={22} className="text-zinc-300 group-hover:text-brand-violet transition-all duration-500" />
                     </div>
-                    <div className="h-0.5 w-0 bg-black group-hover:w-full transition-all duration-700" />
+                    <div className="h-px w-0 bg-brand-violet/20 group-hover:w-full transition-all duration-700" />
                   </div>
                 ))}
               </div>
@@ -204,25 +205,27 @@ export const Services = ({ setActivePage }: ServicesProps) => {
 
         {/* 3. FAQ */}
         <section className="mt-64 py-32 border-y border-zinc-100">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-5xl md:text-7xl font-bold tracking-tight mb-24 text-center uppercase text-zinc-900">
-              Frequently <br /> <span className="text-zinc-300">Asked.</span>
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-5xl md:text-[7rem] font-bold tracking-tighter mb-24 text-center uppercase text-brand-dark leading-[0.8]">
+              Frequently <br /> <span className="text-zinc-100">Asked.</span>
             </h2>
             <div className="space-y-4">
               {[
-                { q: "What makes your branding approach unique?", a: "We combine traditional branding fundamentals with cutting-edge AI automation to create identities that are both timeless and technologically advanced." },
-                { q: "Do you provide ongoing brand maintenance?", a: "Yes, we offer comprehensive brand stewardship packages that include monitoring brand consistency and updating guidelines quarterly." },
-                { q: "What industries do you specialize in?", a: "We primarily work with Tech, FinTech, Luxury, Automotive, and emerging startup sectors, helping visionaries redefine their market presence." },
-                { q: "How do you approach startup branding?", a: "For startups, we focus on scalable brand architectures that can grow with your business, incorporating flexible design systems." },
-                { q: "Can you help with rebranding?", a: "Absolutely. We specialize in strategic repositioning that respects your existing equity while modernizing your identity for future growth." },
-                { q: "What's included in startup solutions?", a: "Our startup solutions include complete brand identity, digital asset creation, marketing automation setup, and foundational business materials." }
+                { q: "What makes your branding approach unique?", a: "We strike a chord by merging clinical technical precision with deep cultural intuition, creating identities that don't just exist—they dominate." },
+                { q: "Do you provide ongoing brand maintenance?", a: "Yes, we offer strategic stewardship packages that ensure your brand evolves alongside shifting technological and cultural landscapes." },
+                { q: "What industries do you specialize in?", a: "We architect solutions for visionaries in Tech, Web3, FinTech, and Luxury sectors who demand digital authority." },
+                { q: "How do you approach startup branding?", a: "For startups, we engineering agile frameworks that provide defensive market depth while allowing for rapid operational scale." },
+                { q: "Can you help with rebranding?", a: "We specialize in strategic resets that preserve core emotional equity while architecting a new visual and cognitive future." },
+                { q: "What's included in startup solutions?", a: "Complete identity systems, autonomous marketing frameworks, and the technical foundation needed to move from vision to market lead." }
               ].map((item, i) => (
-                <details key={i} className="group border-b border-zinc-100 pb-8">
+                <details key={i} className="group border-b border-zinc-50 pb-8">
                   <summary className="list-none cursor-pointer flex justify-between items-center py-8">
-                    <h4 className="text-2xl font-bold tracking-tight uppercase text-zinc-900 group-hover:text-blue-600 transition-colors">{item.q}</h4>
-                    <Plus className="group-open:rotate-45 transition-transform text-zinc-300" />
+                    <h4 className="text-2xl font-bold tracking-tighter uppercase text-brand-dark group-hover:text-brand-violet transition-colors duration-300">{item.q}</h4>
+                    <div className="h-10 w-10 rounded-full border border-zinc-100 flex items-center justify-center group-open:rotate-45 transition-transform">
+                      <Plus size={20} className="text-zinc-300" />
+                    </div>
                   </summary>
-                  <p className="text-xl text-zinc-500 leading-relaxed font-medium pb-8 pl-8 border-l-2 border-zinc-100 ml-2">{item.a}</p>
+                  <p className="text-xl text-zinc-500 leading-relaxed font-medium pb-8 pl-10 border-l border-brand-violet/20 ml-5">{item.a}</p>
                 </details>
               ))}
             </div>
@@ -230,19 +233,28 @@ export const Services = ({ setActivePage }: ServicesProps) => {
         </section>
 
         {/* 5. FINAL CTA */}
-        <section className="py-64 text-center relative overflow-hidden bg-zinc-50 rounded-[4rem] mt-48">
-          <div className="relative z-10 transition-transform hover:scale-105 duration-700">
-            <h2 className="text-6xl md:text-8xl font-bold tracking-tight mb-12 uppercase text-zinc-900">Ready to <br /> transform?</h2>
+        <section className="py-48 md:py-64 text-center relative overflow-hidden bg-brand-dark rounded-[4rem] mt-48 text-white">
+          <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
+            <div className="absolute top-[-20%] right-[-10%] w-[60%] h-[60%] bg-brand-violet/20 rounded-full blur-[120px]" />
+            <div className="absolute bottom-[-20%] left-[-10%] w-[40%] h-[40%] bg-brand-accent/10 rounded-full blur-[100px]" />
+          </div>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="relative z-10"
+          >
+            <h2 className="text-6xl md:text-[9rem] font-bold tracking-tighter mb-16 uppercase leading-[0.85]">Striking <br /> <span className="text-brand-violet">the Accord?</span></h2>
             <button
               onClick={() => setActivePage("contact")}
-              className="bg-black text-white px-12 py-6 rounded-full font-bold flex items-center justify-center gap-4 mx-auto group hover:bg-zinc-800 transition-all text-xl shadow-2xl"
+              className="bg-brand-violet text-white px-14 py-7 rounded-full font-bold flex items-center justify-center gap-4 mx-auto group hover:scale-105 transition-all text-lg shadow-[0_20px_40px_-10px_rgba(124,58,237,0.4)] uppercase tracking-widest"
             >
-              Start Your Project
-              <div className="bg-white/10 p-1 rounded-full group-hover:translate-x-1 transition-transform">
-                <ArrowRight size={24} className="-rotate-45" />
+              Start Your Journey
+              <div className="p-1 rounded-full bg-white/10 group-hover:translate-x-1 transition-transform">
+                <ArrowRight size={24} />
               </div>
             </button>
-          </div>
+          </motion.div>
         </section>
       </div>
     </div>

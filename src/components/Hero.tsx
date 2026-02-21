@@ -1,154 +1,114 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Cpu, Play } from "lucide-react";
-import { ImageWithFallback } from "./figma/ImageWithFallback";
+import { ArrowRight, Cpu } from "lucide-react";
 
 export const Hero = () => {
   return (
-    <section className="relative min-h-[110vh] flex flex-col justify-center items-center pt-32 pb-20 overflow-hidden bg-white bg-grid">
-      {/* Background gradients */}
-      <div className="absolute top-[-20%] left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-gradient-to-r from-violet-200/40 via-fuchsia-100/40 to-amber-50/40 blur-[120px] rounded-full pointer-events-none" />
-      <div className="absolute bottom-[-20%] left-[-10%] w-[600px] h-[600px] bg-blue-50/40 blur-[100px] rounded-full pointer-events-none" />
+    <section className="relative min-h-screen flex flex-col justify-center items-center pt-48 pb-32 overflow-hidden bg-white">
+      {/* Background elements */}
+      <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
+        <div className="absolute top-[-10%] right-[-5%] w-[40%] h-[50%] bg-brand-violet/5 rounded-full blur-[120px]" />
+        <div className="absolute bottom-[-10%] left-[-5%] w-[30%] h-[40%] bg-brand-accent/10 rounded-full blur-[100px]" />
+      </div>
 
-      <div className="container mx-auto px-6 relative z-10 flex flex-col items-center text-center max-w-5xl">
-        {/* Design Subscription Badge */}
+      <div className="container mx-auto px-6 relative z-10 flex flex-col items-center text-center max-w-6xl">
+        {/* Animated Badge */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
           className="mb-8"
         >
-          <a
-            href="#subscription"
-            className="inline-flex items-center gap-2 bg-[#84EF03] text-black px-4 py-2 rounded-full text-sm font-bold shadow-lg hover:scale-105 transition-transform"
-          >
-            Check out our Design Subscription
-            <ArrowRight size={16} />
-          </a>
+          <span className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-brand-violet/5 border border-brand-violet/10 text-brand-violet text-sm font-bold tracking-wide uppercase">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-violet opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-violet"></span>
+            </span>
+            Identity • Intelligence • Interfaces
+          </span>
         </motion.div>
 
-        {/* Main Heading */}
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.1 }}
-          className="text-6xl md:text-[5.5rem] font-bold leading-[1] mb-8 tracking-tight text-zinc-900"
-        >
-          We make apps, <br />
-          <span className="text-zinc-400">websites & brands</span>
-        </motion.h1>
+        {/* Main Heading with Text Reveal */}
+        <div className="overflow-hidden mb-8">
+          <motion.h1
+            initial={{ y: "100%" }}
+            animate={{ y: 0 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="text-7xl md:text-[7rem] font-bold leading-[0.9] tracking-tight text-brand-dark"
+          >
+            Striking the <br />
+            <span className="text-brand-violet">Right Chords</span>
+          </motion.h1>
+        </div>
 
         {/* Subtext */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-xl md:text-2xl text-zinc-500 mb-12 max-w-2xl leading-relaxed"
+          className="text-xl md:text-2xl text-zinc-500 mb-14 max-w-3xl leading-relaxed font-medium"
         >
-          A world-class design agency for world-class companies. We design products with startups and leaders like Apple, Google & more.
+          Markin Studio is your ultimate growth partner, blending full-stack creative solutions with AI-powered engineering to elevate your brand's digital influence.
         </motion.p>
 
-        {/* Buttons */}
+        {/* Action Buttons */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
           className="flex flex-col sm:flex-row items-center gap-6"
         >
-          <button className="bg-black text-white px-10 py-5 rounded-full font-bold flex items-center justify-center gap-3 group hover:bg-zinc-800 transition-all text-lg shadow-2xl">
-            Let's Talk
-            <div className="bg-white/10 p-1 rounded-full group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">
-              <ArrowRight size={20} className="-rotate-45" />
-            </div>
+          <button className="relative px-12 py-6 bg-brand-violet text-white rounded-full font-bold text-lg flex items-center gap-3 overflow-hidden group transition-all hover:scale-105 shadow-[0_20px_40px_-10px_rgba(124,58,237,0.3)]">
+            <span className="relative z-10 font-bold uppercase tracking-wider">Start Your Project</span>
+            <ArrowRight size={22} className="relative z-10 transition-transform group-hover:translate-x-1" />
+            <div className="absolute inset-0 bg-brand-dark translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
           </button>
 
-          <button className="text-zinc-900 font-bold flex items-center justify-center gap-2 group hover:text-zinc-600 transition-all text-lg">
-            View Our Work
-            <div className="w-8 h-8 rounded-full border border-zinc-200 flex items-center justify-center group-hover:border-zinc-400 transition-all">
-              <Play size={14} className="fill-black ml-0.5" />
-            </div>
+          <button className="px-12 py-6 border-2 border-zinc-100 text-brand-dark rounded-full font-bold text-lg hover:border-brand-violet/30 hover:bg-brand-violet/5 transition-all uppercase tracking-wider">
+            Our Portfolio
           </button>
         </motion.div>
       </div>
 
-      {/* Floating Elements (Absolute Positioning) */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden max-w-[1400px] mx-auto">
-
-        {/* Floating Card: AI Workflow (Top Right) */}
+      {/* Dynamic Background Elements */}
+      <div className="absolute inset-0 pointer-events-none">
         <motion.div
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1, delay: 0.5 }}
-          className="absolute top-[18%] right-[5%] md:right-[8%] hidden lg:block"
+          animate={{
+            y: [0, -20, 0],
+            rotate: [0, 5, 0]
+          }}
+          transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
+          className="absolute top-[20%] left-[10%] hidden xl:block"
         >
-          <div className="bg-white/80 backdrop-blur-xl p-4 rounded-2xl shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] border border-white/50 flex items-center gap-4 w-64 transform rotate-3 hover:rotate-0 transition-transform duration-500">
-            <div className="bg-violet-100 p-3 rounded-xl text-violet-600">
+          <div className="p-6 bg-white rounded-3xl shadow-xl border border-zinc-100 max-w-[200px]">
+            <div className="w-12 h-12 bg-brand-violet/10 rounded-2xl flex items-center justify-center text-brand-violet mb-4">
               <Cpu size={24} />
             </div>
-            <div>
-              <p className="text-sm font-bold text-zinc-800">AI Workflow</p>
-              <p className="text-xs text-zinc-500">Auto-optimization active</p>
-            </div>
+            <p className="text-sm font-bold text-brand-dark mb-1 uppercase tracking-tight">AI Integrated</p>
+            <p className="text-xs text-zinc-500 font-medium">Auto-responsive systems ready.</p>
           </div>
         </motion.div>
 
-        {/* Floating Card: Clients (Left Center) */}
         <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1, delay: 0.6 }}
-          className="absolute top-[35%] left-[2%] md:left-[5%] hidden lg:block"
+          animate={{
+            y: [0, 20, 0],
+            rotate: [0, -5, 0]
+          }}
+          transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+          className="absolute bottom-[25%] right-[10%] hidden xl:block"
         >
-          <div className="bg-white/80 backdrop-blur-xl p-5 rounded-2xl shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] border border-white/50 w-auto transform -rotate-2 hover:rotate-0 transition-transform duration-500">
-            <div className="flex -space-x-3 mb-3">
-              {[1, 2, 3].map((i) => (
-                <div key={i} className="w-10 h-10 rounded-full border-2 border-white bg-zinc-200 overflow-hidden">
-                  <ImageWithFallback
-                    src={`https://images.unsplash.com/photo-${1500000000000 + i * 100000}?auto=format&fit=crop&q=80&w=100&h=100`}
-                    alt="Client"
-                  />
-                </div>
+          <div className="p-6 bg-white rounded-3xl shadow-xl border border-zinc-100">
+            <div className="flex -space-x-3 mb-4">
+              {[1, 2, 3].map(i => (
+                <div key={i} className="w-10 h-10 rounded-full border-4 border-white bg-zinc-200" />
               ))}
             </div>
-            <div className="flex items-center justify-between gap-6">
-              <div>
-                <p className="text-sm font-bold text-zinc-900">50+ Clients</p>
-                <p className="text-[10px] text-zinc-500 font-medium tracking-wide uppercase">Global Radius</p>
-              </div>
-              <div className="h-2 w-2 rounded-full bg-green-500 animate-pulse" />
+            <p className="text-sm font-bold text-brand-dark mb-1 uppercase tracking-tight">50+ Projects</p>
+            <div className="flex items-center gap-2">
+              <div className="h-2 w-2 rounded-full bg-green-500" />
+              <p className="text-[10px] text-zinc-500 font-bold uppercase tracking-widest">Global Reach</p>
             </div>
           </div>
         </motion.div>
-
-        {/* Floating Card: Creative Studio Image (Bottom Right) */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.7 }}
-          className="absolute bottom-[20%] right-[10%] hidden md:block"
-        >
-          <div className="relative group">
-            <div className="absolute inset-0 bg-violet-600 rounded-2xl blur-xl opacity-20 group-hover:opacity-40 transition-opacity" />
-            <div className="relative overflow-hidden rounded-2xl shadow-2xl w-48 h-32 transform hover:scale-105 transition-transform duration-500 border-4 border-white">
-              <ImageWithFallback
-                src="https://images.unsplash.com/photo-1764588037085-a78240016f8b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBjcmVhdGl2ZSUyMHN0dWRpbyUyMG1pbmltYWxpc3QlMjB3b3Jrc3BhY2V8ZW58MXx8fHwxNzcwMzc0NTgwfDA&ixlib=rb-4.1.0&q=80&w=400"
-                alt="Creative Studio"
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div className="absolute -bottom-3 -right-3 bg-white px-3 py-1 rounded-full text-xs font-bold shadow-md border border-zinc-100">
-              New
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Additional Decor: Lines or Plus signs */}
-        <div className="absolute top-1/4 left-1/4 text-zinc-200/50">
-          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1"><path d="M12 5v14M5 12h14" /></svg>
-        </div>
-        <div className="absolute bottom-1/3 right-1/4 text-zinc-200/50">
-          <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1"><path d="M12 5v14M5 12h14" /></svg>
-        </div>
-
       </div>
     </section>
   );

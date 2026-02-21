@@ -15,7 +15,7 @@ const Journals = lazy(() => import("./pages/Journals").then(module => ({ default
 // Loading component
 const PageLoader = () => (
   <div className="flex items-center justify-center p-20">
-    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-black"></div>
+    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-brand-violet"></div>
   </div>
 );
 
@@ -72,7 +72,7 @@ function App() {
   };
 
   return (
-    <div className="bg-white font-sans selection:bg-black selection:text-white">
+    <div className="bg-white font-sans selection:bg-brand-violet selection:text-white">
       <Analytics />
       <div className="noise-overlay" />
       <Navigation activePage={activePage} setActivePage={setActivePage} />
@@ -89,7 +89,7 @@ function App() {
         </motion.div>
       </AnimatePresence>
 
-      <footer className="pt-64 pb-20 bg-white text-zinc-900 px-6 md:px-12 overflow-hidden relative border-t border-zinc-100">
+      <footer className="pt-64 pb-20 bg-white text-brand-dark px-6 md:px-12 overflow-hidden relative border-t border-zinc-100">
         <div className="container mx-auto">
           {/* GIANT TEXT */}
           <div className="mb-48 relative overflow-hidden">
@@ -99,43 +99,16 @@ function App() {
               transition={{ duration: 2, ease: [0.16, 1, 0.3, 1] }}
               className="flex whitespace-nowrap"
             >
-              <h2 className="text-[clamp(4rem,22vw,24rem)] font-bold uppercase tracking-tighter leading-[0.7] text-zinc-100">
-                Engineering Value • Engineering Value • Engineering Value
+              <h2 className="text-[clamp(4rem,18vw,24rem)] font-black uppercase tracking-tighter leading-[0.7] text-brand-dark/5">
+                Markin Studio • Markin Studio • Markin Studio
               </h2>
             </motion.div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-24 pt-24 border-t border-zinc-100">
-            <div className="space-y-12">
-              <div className="flex items-center gap-3">
-                <span className="text-2xl font-bold tracking-tight uppercase leading-none text-zinc-900">
-                  Markin Studio<span className="text-blue-600 text-xs">®</span>
-                </span>
-              </div>
-              <p className="text-zinc-500 font-medium leading-relaxed max-w-[240px]">
-                Architecting the future of visual and cognitive brand autonomy through engineering and design excellence.
-              </p>
-            </div>
-
+          <div className="grid lg:grid-cols-2 gap-24 items-end">
             <div>
-              <span className="text-xs font-bold uppercase tracking-widest text-zinc-400 block mb-12">Navigation</span>
-              <ul className="space-y-6">
-                {["Home", "Services", "Work", "Studio", "Journals"].map(item => (
-                  <li key={item}>
-                    <button
-                      onClick={() => setActivePage(item.toLowerCase())}
-                      className="text-2xl font-bold uppercase text-zinc-900 hover:text-blue-600 transition-colors cursor-pointer block"
-                    >
-                      {item}
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div>
-              <span className="text-xs font-bold uppercase tracking-widest text-zinc-400 block mb-12">Collective</span>
-              <ul className="space-y-6">
+              <span className="text-xs font-bold uppercase tracking-[0.3em] text-brand-violet block mb-12">Social Connect</span>
+              <ul className="grid grid-cols-2 md:grid-cols-3 gap-y-6 gap-x-12">
                 {[
                   { name: "LinkedIn", url: "https://www.linkedin.com/company/markinstudio/" },
                   { name: "Instagram", url: "https://www.instagram.com/markinstudio1/" },
@@ -148,7 +121,7 @@ function App() {
                       href={item.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-2xl font-bold uppercase text-zinc-900 hover:text-blue-600 transition-colors block"
+                      className="text-xl font-bold uppercase text-brand-dark hover:text-brand-violet transition-colors block tracking-tight"
                     >
                       {item.name}
                     </a>
@@ -159,15 +132,19 @@ function App() {
 
             <div className="space-y-12">
               <div>
-                <span className="text-xs font-bold uppercase tracking-widest text-zinc-400 block mb-6">Inquiries</span>
-                <p className="text-xl font-bold text-zinc-900 mb-2 hover:text-blue-600 transition-colors cursor-pointer break-all uppercase">markinstudio64@gmail.com</p>
-                <p className="text-xl font-bold text-zinc-900 hover:text-blue-600 transition-colors cursor-pointer uppercase">+92 337 0660803</p>
+                <span className="text-xs font-bold uppercase tracking-[0.3em] text-brand-violet block mb-8">Direct Inquiries</span>
+                <p className="text-2xl font-bold text-brand-dark mb-3 hover:text-brand-violet transition-colors cursor-pointer break-all uppercase tracking-tight">markinstudio64@gmail.com</p>
+                <p className="text-2xl font-bold text-brand-dark hover:text-brand-violet transition-colors cursor-pointer uppercase tracking-tight">+92 337 0660803</p>
               </div>
 
-              <div className="pt-12 border-t border-zinc-100">
-                <p className="text-[10px] font-bold uppercase tracking-widest text-zinc-300">
+              <div className="pt-12 border-t border-zinc-100 flex justify-between items-center">
+                <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-zinc-400">
                   © 2026 MARKIN AGENCY — ALL RIGHTS RESERVED
                 </p>
+                <div className="flex gap-6">
+                  <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                  <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-zinc-400">Systems Operational</p>
+                </div>
               </div>
             </div>
           </div>
