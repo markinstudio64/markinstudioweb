@@ -25,21 +25,21 @@ const steps = [
 
 export const Process = () => {
   return (
-    <section id="process" className="py-24 bg-zinc-900 text-white overflow-hidden">
+    <section id="process" className="py-24 bg-zinc-50 text-zinc-900 overflow-hidden">
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-start">
           <div>
-            <h2 className="text-sm font-bold tracking-widest text-blue-400 uppercase mb-4">Our Methodology</h2>
+            <h2 className="text-sm font-bold tracking-widest text-violet-600 uppercase mb-4">Our Methodology</h2>
             <h3 className="text-4xl md:text-6xl font-bold mb-8 leading-tight tracking-tight">
-              A Proven Path to Digital <span className="text-blue-500 italic">Evolution.</span>
+              A Proven Path to Digital <span className="text-violet-600 italic">Evolution.</span>
             </h3>
-            <p className="text-xl text-zinc-400 mb-12 max-w-lg leading-relaxed">
+            <p className="text-xl text-zinc-600 mb-12 max-w-lg leading-relaxed">
               We don't just guess. We follow a data-driven, creative-led process that ensures your investment yields measurable results.
             </p>
-            <div className="bg-zinc-800/50 p-8 rounded-3xl border border-zinc-700">
+            <div className="bg-white p-8 rounded-3xl border border-zinc-200 shadow-sm">
               <p className="text-2xl font-bold mb-4">"Markin Studio reduced our operational costs by 35% through AI while doubling our brand recognition."</p>
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-zinc-600" />
+                <div className="w-12 h-12 rounded-full bg-zinc-200" />
                 <div>
                   <p className="font-bold">Sarah Jenkins</p>
                   <p className="text-sm text-zinc-500">CEO, TechFlow Systems</p>
@@ -56,15 +56,15 @@ export const Process = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="group relative bg-zinc-800/30 p-8 rounded-3xl border border-zinc-800 hover:border-blue-500/50 transition-all"
+                className="group relative bg-white p-8 rounded-3xl border border-zinc-200 hover:border-violet-200 hover:shadow-lg transition-all"
               >
                 <div className="flex items-start gap-6">
-                  <span className="text-4xl font-black text-blue-500/20 group-hover:text-blue-500 transition-colors">
+                  <span className="text-4xl font-black text-violet-100 group-hover:text-violet-600 transition-colors">
                     {step.number}
                   </span>
                   <div>
                     <h4 className="text-2xl font-bold mb-3">{step.title}</h4>
-                    <p className="text-zinc-400 leading-relaxed">{step.description}</p>
+                    <p className="text-zinc-600 leading-relaxed">{step.description}</p>
                   </div>
                 </div>
               </motion.div>

@@ -19,7 +19,7 @@ export const Home = ({ setActivePage }: HomeProps) => {
   const heroOpacity = useTransform(scrollYProgress, [0, 0.15], [1, 0]);
 
   return (
-    <div ref={containerRef} className="bg-white selection:bg-black selection:text-white">
+    <div ref={containerRef} className="bg-white selection:bg-violet-600 selection:text-white">
       {/* 1. KINETIC HERO */}
       <section className="relative h-[140vh] flex flex-col justify-start pt-32 md:pt-40 px-6 md:px-12 overflow-hidden bg-zinc-50 text-zinc-900">
         <motion.div
@@ -105,7 +105,7 @@ export const Home = ({ setActivePage }: HomeProps) => {
               </div>
               <button
                 onClick={() => setActivePage("contact")}
-                className="h-24 w-24 md:h-40 md:w-40 rounded-full bg-violet-600 text-white flex items-center justify-center hover:scale-105 transition-transform group shadow-xl"
+                className="h-24 w-24 md:h-40 md:w-40 rounded-full bg-black text-white flex items-center justify-center hover:bg-gradient-to-r hover:from-violet-600 hover:to-indigo-600 hover:scale-105 transition-all group shadow-xl"
               >
                 <ArrowUpRight size={40} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
               </button>
@@ -134,7 +134,7 @@ export const Home = ({ setActivePage }: HomeProps) => {
               <span className="text-violet-600 font-bold uppercase tracking-[0.4em] text-[10px] block mb-12">Our Mission</span>
               <div className="sticky top-48">
                 <h2 className="text-5xl font-black uppercase italic tracking-tighter leading-[0.9] mb-8">
-                  We bridge the <br /> gap between <br /> human <span className="text-zinc-300">logic</span> <br /> and AI <span className="text-violet-600">magic</span>.
+                  We bridge the <br /> gap between <br /> human <span className="text-zinc-300">logic</span> <br /> and AI <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-indigo-600">magic</span>.
                 </h2>
               </div>
             </div>
@@ -182,7 +182,7 @@ export const Home = ({ setActivePage }: HomeProps) => {
               <p className="text-zinc-500 mb-8 font-medium">A curation of our latest breakthroughs in visual engineering and automation.</p>
               <button
                 onClick={() => setActivePage("work")}
-                className="group flex items-center gap-4 font-black uppercase tracking-widest text-[10px] ml-auto border-b-2 border-black pb-2 hover:text-violet-600 hover:border-violet-600 transition-all"
+                className="group flex items-center gap-4 font-black uppercase tracking-widest text-[10px] ml-auto border-b-2 border-zinc-900 pb-2 hover:text-violet-600 hover:border-violet-600 transition-all"
               >
                 View Full Archive <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
               </button>
@@ -215,10 +215,10 @@ export const Home = ({ setActivePage }: HomeProps) => {
                 </div>
                 <div className="flex justify-between items-start border-t border-zinc-200 pt-8">
                   <div>
-                    <h3 className="text-4xl font-black uppercase italic tracking-tighter mb-2 group-hover:text-violet-600 transition-colors">{p.title}</h3>
+                    <h3 className="text-4xl font-black uppercase italic tracking-tighter mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-violet-600 group-hover:to-indigo-600 transition-colors">{p.title}</h3>
                     <span className="text-[10px] font-black uppercase tracking-[0.3em] text-zinc-400">{p.cat}</span>
                   </div>
-                  <div className="h-12 w-12 rounded-full border border-zinc-200 flex items-center justify-center group-hover:bg-violet-600 group-hover:text-white transition-all">
+                  <div className="h-12 w-12 rounded-full border border-zinc-200 flex items-center justify-center group-hover:bg-gradient-to-r group-hover:from-violet-600 group-hover:to-indigo-600 group-hover:text-white transition-all">
                     <Plus size={20} className="group-hover:rotate-90 transition-transform duration-500" />
                   </div>
                 </div>
@@ -253,7 +253,7 @@ export const Home = ({ setActivePage }: HomeProps) => {
                 >
                   <div>
                     <h3
-                      className="text-4xl md:text-6xl font-black uppercase italic tracking-tighter group-hover:text-violet-600 transition-colors cursor-pointer"
+                      className="text-4xl md:text-6xl font-black uppercase italic tracking-tighter group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-violet-600 group-hover:to-indigo-600 transition-colors cursor-pointer"
                       onClick={() => setActivePage("services")}
                     >
                       {c.t}
@@ -286,8 +286,8 @@ export const Home = ({ setActivePage }: HomeProps) => {
                 <div className="aspect-[4/3] rounded-3xl overflow-hidden mb-8 grayscale hover:grayscale-0 transition-all duration-700">
                   <ImageWithFallback src={post.img} alt={post.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" />
                 </div>
-                <span className="text-[10px] font-bold text-violet-600 tracking-widest block mb-4">{post.date}</span>
-                <h4 className="text-2xl font-black uppercase italic tracking-tighter leading-none group-hover:underline decoration-2 underline-offset-8 transition-all">{post.title}</h4>
+                <span className="text-[10px] font-bold text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-indigo-600 tracking-widest block mb-4">{post.date}</span>
+                <h4 className="text-2xl font-black uppercase italic tracking-tighter leading-none group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-violet-600 group-hover:to-indigo-600 group-hover:underline decoration-2 underline-offset-8 transition-all">{post.title}</h4>
               </div>
             ))}
           </div>
@@ -302,15 +302,20 @@ export const Home = ({ setActivePage }: HomeProps) => {
         <motion.div
           animate={{ x: [0, -1000] }}
           transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-          className="flex gap-32 items-center grayscale opacity-30 whitespace-nowrap"
+          className="flex gap-32 items-center grayscale opacity-50"
         >
-          {Array.from({ length: 8 }).map((_, i) => (
-            <div key={i} className="text-5xl font-black uppercase italic flex gap-32">
-              <span>Milkline</span>
-              <span>Aurora Ledger</span>
-              <span>Vitalume Health</span>
-              <span>Veridion Properties</span>
-              <span>Go Cafe</span>
+          {[
+            "/assets/apple-logo.png",
+            "/assets/nike-logo.png",
+            "/assets/openai-logo.png",
+            "/assets/spacex-logo.png",
+            "/assets/tesla-logo.png",
+            "/assets/apple-logo.png",
+            "/assets/nike-logo.png",
+            "/assets/openai-logo.png"
+          ].map((logo, i) => (
+            <div key={i} className="flex-shrink-0">
+              <img src={logo} alt="Partner Logo" className="h-12 w-auto object-contain" />
             </div>
           ))}
         </motion.div>
@@ -325,11 +330,11 @@ export const Home = ({ setActivePage }: HomeProps) => {
           className="relative z-10"
         >
           <h2 className="text-[clamp(3rem,10vw,12rem)] font-black uppercase italic tracking-tighter leading-[0.8] mb-12">
-            Engineered <br /> for <span className="text-violet-600">Greatness.</span>
+            Engineered <br /> for <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-indigo-600">Greatness.</span>
           </h2>
           <button
             onClick={() => setActivePage("contact")}
-            className="inline-flex items-center gap-6 bg-violet-600 text-white px-12 py-6 rounded-full text-xs font-black uppercase tracking-[0.3em] hover:scale-105 transition-transform shadow-xl"
+            className="inline-flex items-center gap-6 bg-black text-white px-12 py-6 rounded-full text-xs font-black uppercase tracking-[0.3em] hover:bg-gradient-to-r hover:from-violet-600 hover:to-indigo-600 hover:scale-105 transition-all shadow-xl"
           >
             Start Your Journey <ArrowRight size={18} />
           </button>

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { track } from "@vercel/analytics";
 
 // Define form data type
 interface FormData {
@@ -85,6 +86,9 @@ export const Contact = () => {
 
       if (response.ok) {
         setSubmitSuccess(true);
+        // Track successful submission in Vercel Analytics
+        track('contact_form_success', { services: selectedService.join(', ') });
+
         // Reset form
         setFormData({
           name: '',
@@ -123,7 +127,7 @@ export const Contact = () => {
           >
             <span className="text-violet-600 font-bold uppercase tracking-[0.5em] text-[10px] block mb-6">Get in touch</span>
             <h1 className="text-5xl font-black uppercase tracking-tighter italic leading-[0.8] mb-6">
-              Start the <br /> <span className="text-zinc-200">Revolution.</span>
+              Start the <br /> <span className="text-violet-600">Revolution.</span>
             </h1>
             <p className="text-lg text-zinc-500 font-medium leading-tight mb-8">
               Whether you're looking to automate your workflow or redefine your visual soul, we are ready.
@@ -140,7 +144,7 @@ export const Contact = () => {
             >
               <span className="text-violet-600 font-bold uppercase tracking-[0.5em] text-[10px] block mb-12">Get in touch</span>
               <h1 className="text-[clamp(4rem,10vw,8rem)] font-black uppercase tracking-tighter italic leading-[0.8] mb-12">
-                Start the <br /> <span className="text-zinc-200">Revolution.</span>
+                Start the <br /> <span className="text-violet-600">Revolution.</span>
               </h1>
               <p className="text-2xl text-zinc-500 font-medium leading-tight mb-24 max-w-sm">
                 Whether you're looking to automate your workflow or redefine your visual soul, we are ready.
@@ -175,7 +179,7 @@ export const Contact = () => {
                         key={s}
                         type="button"
                         onClick={() => toggleService(s)}
-                        className={`service-button px-8 py-4 rounded-full text-[10px] font-black uppercase tracking-widest transition-all ${selectedService.includes(s) ? "bg-violet-600 text-white" : "border border-zinc-200 text-zinc-500 hover:border-violet-600 hover:text-violet-600"
+                        className={`service-button px-8 py-4 rounded-full text-[10px] font-black uppercase tracking-widest transition-all ${selectedService.includes(s) ? "bg-gradient-to-r from-violet-600 to-indigo-600 text-white" : "border border-zinc-200 text-zinc-500 hover:border-violet-600 hover:text-violet-600"
                           }`}
                       >
                         {s}
@@ -274,7 +278,7 @@ export const Contact = () => {
                     disabled={isSubmitting}
                     className={`w-full group h-24 rounded-full flex items-center justify-center gap-6 hover:scale-[1.02] transition-transform ${isSubmitting
                       ? 'bg-gray-400 text-gray-200 cursor-not-allowed'
-                      : 'bg-violet-600 text-white hover:bg-violet-700'
+                      : 'bg-black text-white hover:bg-gradient-to-r hover:from-violet-600 hover:to-indigo-600'
                       }`}
                   >
                     <span className="font-black uppercase tracking-[0.4em] text-xs">

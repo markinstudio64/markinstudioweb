@@ -130,7 +130,7 @@ export const Studio = () => {
             </div>
 
             <h1 className="text-[clamp(4rem,14vw,12rem)] font-black uppercase tracking-tighter italic leading-[0.8] mb-24">
-              Designing <br /> <span className="text-zinc-200 italic">Autonomy.</span>
+              Designing <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-indigo-600 italic">Autonomy.</span>
             </h1>
 
             <div className="grid lg:grid-cols-2 gap-24 items-start">
@@ -178,7 +178,7 @@ export const Studio = () => {
             <div className="lg:col-span-5">
               <span className="text-violet-600 font-bold uppercase tracking-[0.4em] text-[10px] block mb-12">Manifesto</span>
               <h2 className="text-5xl font-black uppercase italic tracking-tighter leading-none mb-12">
-                The machine <br /> has a <span className="text-violet-600">soul.</span>
+                The machine <br /> has a <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-indigo-600">soul.</span>
               </h2>
               <div className="space-y-8 text-xl text-zinc-500 font-medium leading-relaxed">
                 <p>We believe that Artificial Intelligence is the greatest creative tool ever conceived—not a replacement for the human spirit, but an amplifier for it.</p>
@@ -203,7 +203,7 @@ export const Studio = () => {
               { icon: <Layers size={40} />, t: "Technical Depth", d: "Deep engineering meets high-end aesthetics." },
               { icon: <Zap size={40} />, t: "Radical Speed", d: "Autonomous workflows for lightning deployment." }
             ].map((v, i) => (
-              <div key={i} className="bg-white p-12 group hover:bg-violet-600 hover:text-white transition-all duration-500">
+              <div key={i} className="bg-white p-12 group hover:bg-gradient-to-r hover:from-violet-600 hover:to-indigo-600 hover:text-white transition-all duration-500">
                 <div className="mb-12 text-violet-600 group-hover:text-white transition-colors">
                   {v.icon}
                 </div>
@@ -220,7 +220,7 @@ export const Studio = () => {
         <div className="container mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-end mb-32 gap-12">
             <h2 className="text-7xl md:text-9xl font-black uppercase italic tracking-tighter leading-none">
-              How we <br /> <span className="text-zinc-300">Engineer.</span>
+              How we <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-zinc-300 to-zinc-400">Engineer.</span>
             </h2>
             <p className="max-w-sm text-zinc-500 font-medium italic">Our five-phase framework for systematic transformation.</p>
           </div>
@@ -275,7 +275,7 @@ export const Studio = () => {
                 <span className="text-[10px] font-black uppercase tracking-widest text-zinc-400 block mb-4">{person.role}</span>
                 <a href={person.linkedin} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-violet-600 hover:text-violet-800 transition-colors">
                   <Linkedin size={16} />
-                  <span>LinkedIn</span>
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-indigo-600">LinkedIn</span>
                 </a>
               </div>
             ))}
@@ -369,7 +369,7 @@ export const Studio = () => {
                       className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-violet-600 hover:text-violet-800 transition-colors"
                     >
                       <Linkedin size={16} />
-                      <span>Connect on LinkedIn</span>
+                      <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-indigo-600">Connect on LinkedIn</span>
                     </a>
                   </div>
                 </div>
@@ -379,7 +379,7 @@ export const Studio = () => {
             <div className="p-6 border-t border-zinc-200">
               <button
                 onClick={closeLeaderProfile}
-                className="w-full py-4 bg-violet-600 text-white font-black uppercase tracking-[0.2em] text-[10px] hover:bg-violet-700 transition-colors"
+                className="w-full py-4 bg-black text-white font-black uppercase tracking-[0.2em] text-[10px] hover:bg-gradient-to-r hover:from-violet-600 hover:to-indigo-600 transition-colors"
               >
                 Close Profile
               </button>

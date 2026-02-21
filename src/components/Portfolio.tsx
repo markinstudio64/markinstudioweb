@@ -7,7 +7,7 @@ const projects = [
     title: "Lumina Healthcare",
     category: "Branding • UI/UX",
     image: "/assets/img13.png",
-    color: "bg-blue-600"
+    color: "bg-violet-600"
   },
   {
     title: "Aether AI",
@@ -35,10 +35,10 @@ export const Portfolio = () => {
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
           <div className="max-w-2xl">
-            <h2 className="text-sm font-bold tracking-widest text-blue-600 uppercase mb-4">Selected Work</h2>
+            <h2 className="text-sm font-bold tracking-widest text-violet-600 uppercase mb-4">Selected Work</h2>
             <h3 className="text-4xl md:text-5xl font-bold tracking-tight">Showcasing Digital Excellence</h3>
           </div>
-          <button className="text-lg font-bold border-b-2 border-black pb-1 hover:text-blue-600 hover:border-blue-600 transition-all">
+          <button className="text-lg font-bold border-b-2 border-zinc-900 pb-1 hover:text-violet-600 hover:border-violet-600 transition-all">
             See All Projects
           </button>
         </div>
