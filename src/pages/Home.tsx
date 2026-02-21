@@ -1,9 +1,9 @@
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 import { ArrowRight, ArrowUpRight, Zap, Target, Brain, Shield, Globe, Award } from "lucide-react";
 import { Hero } from "../components/Hero";
 import { CharReveal, TextReveal } from "../components/TextReveal";
-import { useRef } from "react";
+
 
 // Define the props interface
 interface HomeProps {
@@ -11,7 +11,7 @@ interface HomeProps {
 }
 
 export const Home = ({ setActivePage }: HomeProps) => {
-  const containerRef = useRef(null);
+
 
   return (
     <div className="bg-white selection:bg-brand-violet selection:text-white overflow-hidden">

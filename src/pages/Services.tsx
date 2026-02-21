@@ -1,7 +1,7 @@
-import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowRight, Zap, Target, Search, BarChart, Plus, CheckCircle, Database, Layout, ShieldCheck } from "lucide-react";
-import { CharReveal, TextReveal } from "../components/TextReveal";
-import { useRef } from "react";
+import { motion } from "framer-motion";
+import { ArrowRight, Target, Plus, Database, Layout, ShieldCheck } from "lucide-react";
+import { CharReveal } from "../components/TextReveal";
+
 
 // Define props interface
 interface ServicesProps {
@@ -9,7 +9,7 @@ interface ServicesProps {
 }
 
 export const Services = ({ setActivePage }: ServicesProps) => {
-  const containerRef = useRef(null);
+
 
   const serviceCategories = [
     {
@@ -48,7 +48,7 @@ export const Services = ({ setActivePage }: ServicesProps) => {
   ];
 
   return (
-    <div ref={containerRef} className="bg-white selection:bg-brand-violet selection:text-white pt-56 pb-32">
+    <div className="bg-white selection:bg-brand-violet selection:text-white pt-56 pb-32">
       <div className="container mx-auto px-6 md:px-12">
         {/* 1. HERO SECTION - CLEAN & INTELLIGENT */}
         <section className="mb-48 md:mb-64">
