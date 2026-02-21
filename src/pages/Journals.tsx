@@ -1,5 +1,5 @@
-import { useRef, useState } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { useState } from "react";
+import { motion } from "framer-motion";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 import { ArrowRight, ArrowUpRight, X } from "lucide-react";
 
@@ -19,15 +19,6 @@ interface JournalsProps {
 }
 
 export const Journals = ({ setActivePage }: JournalsProps) => {
-  const containerRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"]
-  });
-
-  const heroY = useTransform(scrollYProgress, [0, 0.2], [0, -100]);
-  const heroOpacity = useTransform(scrollYProgress, [0, 0.15], [1, 0]);
-
   // Journal posts data
   const journalPosts: JournalPost[] = [
     {
@@ -91,97 +82,59 @@ export const Journals = ({ setActivePage }: JournalsProps) => {
   };
 
   return (
-    <div ref={containerRef} className="bg-white bg-grid selection:bg-violet-600 selection:text-white overflow-hidden relative">
+    <div className="bg-white selection:bg-black selection:text-white pt-48">
       {/* 1. JOURNALS HERO */}
-      <section className="relative min-h-[90vh] flex flex-col justify-start pt-32 md:pt-40 px-6 md:px-12 bg-white/0 text-zinc-900 pointer-events-none">
-        {/* Background gradients */}
-        <div className="absolute top-[-20%] left-1/2 -translate-x-1/2 w-[80%] h-[80%] bg-gradient-to-br from-violet-100/40 via-purple-50/40 to-indigo-50/40 blur-3xl opacity-80 pointer-events-none" />
-        <div className="absolute bottom-[-10%] left-[-5%] w-[40%] h-[40%] bg-blue-50/50 rounded-full blur-[100px] pointer-events-none" />
-
-        <motion.div
-          style={{ y: heroY, opacity: heroOpacity }}
-          className="container mx-auto z-10 relative pointer-events-auto"
-        >
-          <div className="flex flex-col gap-4 mb-12">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1, delay: 0.5 }}
-              className="flex items-center gap-3"
-            >
-              <div className="h-[2px] w-12 bg-violet-600" />
-              <span className="text-[10px] font-black uppercase tracking-[0.5em] text-zinc-500">Weekly Industry Insights</span>
-            </motion.div>
-          </div>
-
-          <div className="overflow-hidden mb-4">
-            <motion.h1
-              initial={{ y: "110%" }}
-              animate={{ y: 0 }}
-              transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-              className="text-[clamp(4rem,18vw,16rem)] leading-[0.75] font-black tracking-tighter uppercase italic"
-            >
-              Insights
-            </motion.h1>
-          </div>
-          <div className="overflow-hidden flex justify-end">
-            <motion.h1
-              initial={{ y: "110%" }}
-              animate={{ y: 0 }}
-              transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
-              className="text-[clamp(4rem,18vw,16rem)] leading-[0.75] font-black tracking-tighter uppercase italic text-zinc-400"
-            >
-              & Ideas
-            </motion.h1>
-          </div>
-
+      <section className="px-6 md:px-12 mb-48">
+        <div className="container mx-auto">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.8 }}
-            className="mt-24 grid md:grid-cols-12 gap-12"
+            transition={{ duration: 0.8 }}
+            className="max-w-[1400px]"
           >
-            <div className="md:col-span-4">
-              <p className="text-xl md:text-2xl font-medium text-zinc-500 leading-tight">
-                A curated collection of thoughts, trends, and innovations shaping the future of branding and AI integration.
-              </p>
+            <div className="flex items-center gap-4 mb-12">
+              <span className="text-xs font-bold uppercase tracking-[0.2em] text-zinc-400">Weekly Industry Insights</span>
+              <div className="h-px flex-1 bg-zinc-100" />
             </div>
-            <div className="md:col-span-8 flex justify-end items-end gap-12">
-              <div className="hidden md:block text-right">
-                <span className="text-[10px] font-black uppercase tracking-widest text-zinc-400 block mb-2">Updated</span>
-                <span className="text-xl font-bold uppercase italic">Weekly</span>
+
+            <h1 className="text-6xl md:text-9xl font-bold tracking-tight leading-[0.9] mb-24 text-zinc-900 uppercase">
+              Insights <br /> <span className="text-zinc-300">& Ideas.</span>
+            </h1>
+
+            <div className="grid lg:grid-cols-2 gap-24 items-start border-t border-zinc-100 pt-12">
+              <p className="text-3xl md:text-5xl font-bold tracking-tight leading-[1.1] text-zinc-900">
+                A curated collection of thoughts, trends, and innovations shaping the future of branding and digital strategy.
+              </p>
+              <div className="space-y-12">
+                <p className="text-xl text-zinc-500 leading-relaxed font-medium">
+                  We explore the intersection of design, technology, and culture to provide actionable insights for visionaries and leaders.
+                </p>
+                <div className="flex justify-between items-end">
+                  <div>
+                    <span className="text-xs font-bold uppercase tracking-widest text-zinc-400 block mb-2">Updated</span>
+                    <span className="text-4xl font-bold text-zinc-900">Weekly.</span>
+                  </div>
+                  <button
+                    onClick={() => setActivePage("contact")}
+                    className="h-20 w-20 md:h-32 md:w-32 rounded-full bg-black text-white flex items-center justify-center hover:scale-110 transition-transform group shadow-2xl"
+                  >
+                    <ArrowUpRight size={32} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                  </button>
+                </div>
               </div>
-              <button
-                onClick={() => setActivePage("contact")}
-                className="h-24 w-24 md:h-40 md:w-40 rounded-full bg-violet-600 text-white flex items-center justify-center hover:scale-105 transition-transform group shadow-xl"
-              >
-                <ArrowUpRight size={40} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-              </button>
             </div>
           </motion.div>
-        </motion.div>
-
-        {/* Ambient Background Video/Graphic Placeholder */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          <motion.div
-            animate={{
-              scale: [1, 1.1, 1],
-              opacity: [0.1, 0.2, 0.1]
-            }}
-            transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-            className="w-full h-full bg-gradient-to-tr from-violet-200 via-transparent to-zinc-100/40"
-          />
         </div>
       </section>
 
       {/* 2. JOURNAL POSTS GRID */}
-      <section className="py-48 px-6 md:px-12 bg-white">
+      <section className="py-48 px-6 md:px-12 bg-white border-t border-zinc-100">
         <div className="container mx-auto">
           <div className="grid lg:grid-cols-12 gap-24">
             <div className="lg:col-span-4">
-              <span className="text-violet-600 font-bold uppercase tracking-[0.4em] text-[10px] block mb-12">Latest Insights</span>
-              <h2 className="text-5xl font-black uppercase italic tracking-tighter leading-tight">
-                Our <span className="text-zinc-300">Research</span> & <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-indigo-600">Analysis.</span>
+              <span className="text-zinc-400 font-bold uppercase tracking-[0.2em] text-xs block mb-12">Latest Insights</span>
+              <h2 className="text-5xl md:text-7xl font-bold tracking-tight leading-tight text-zinc-900 uppercase">
+                Our <span className="text-zinc-300">Research</span> & <br /> Analysis.
               </h2>
             </div>
             <div className="lg:col-span-8">
@@ -196,22 +149,19 @@ export const Journals = ({ setActivePage }: JournalsProps) => {
                     className="group cursor-pointer"
                     onClick={() => openArticle(post)}
                   >
-                    <div className="relative overflow-hidden aspect-[4/3] rounded-3xl bg-zinc-100 mb-8">
+                    <div className="relative overflow-hidden aspect-[10/11] rounded-[2rem] bg-zinc-100 mb-8">
                       <ImageWithFallback
                         src={post.img}
                         alt={post.title}
-                        className="w-full h-full object-cover grayscale transition-all duration-1000 group-hover:scale-110 group-hover:grayscale-0"
+                        className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-105"
                       />
-                      <div className="absolute top-8 left-8">
-                        <span className="text-white font-mono text-sm mix-blend-difference">{post.id}</span>
-                      </div>
                     </div>
-                    <div className="border-t border-zinc-200 pt-8">
-                      <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-indigo-600 font-bold text-[10px] uppercase tracking-widest block mb-4">{post.date}</span>
-                      <h3 className="text-2xl font-black uppercase italic tracking-tighter mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-violet-600 group-hover:to-indigo-600 transition-colors">{post.title}</h3>
-                      <p className="text-zinc-500 mb-6">{post.excerpt}</p>
-                      <button className="group flex items-center gap-2 font-black uppercase tracking-widest text-[10px] border-b border-zinc-900 pb-1 group-hover:text-indigo-600 group-hover:border-indigo-600 transition-all">
-                        Read More <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
+                    <div>
+                      <span className="text-blue-600 font-bold text-xs uppercase tracking-widest block mb-4">{post.date}</span>
+                      <h3 className="text-3xl font-bold tracking-tight mb-4 text-zinc-900 group-hover:text-blue-600 transition-colors uppercase">{post.title}</h3>
+                      <p className="text-lg text-zinc-500 font-medium mb-6 leading-relaxed">{post.excerpt}</p>
+                      <button className="group flex items-center gap-3 font-bold uppercase tracking-widest text-xs border-b-2 border-zinc-900 pb-2 hover:text-blue-600 hover:border-blue-600 transition-all">
+                        Read Story <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                       </button>
                     </div>
                   </motion.div>
@@ -223,25 +173,25 @@ export const Journals = ({ setActivePage }: JournalsProps) => {
       </section>
 
       {/* 3. SUBSCRIBE SECTION */}
-      <section className="py-48 px-6 md:px-12 bg-zinc-50">
-        <div className="container mx-auto">
+      <section className="py-64 bg-zinc-50 rounded-[4rem] mx-6 md:mx-12 mb-32 border border-zinc-100">
+        <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
-            <span className="text-violet-600 font-bold uppercase tracking-[0.4em] text-[10px] block mb-8">Stay Updated</span>
-            <h2 className="text-5xl md:text-6xl font-black uppercase italic tracking-tighter leading-tight mb-8">
-              Subscribe to <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-indigo-600">Insights</span>
+            <span className="text-blue-600 font-bold uppercase tracking-[0.2em] text-xs block mb-12">Newsletter</span>
+            <h2 className="text-6xl md:text-8xl font-bold tracking-tight leading-tight mb-12 text-zinc-900 uppercase">
+              Join the <br /> <span className="text-zinc-300">Inner Circle.</span>
             </h2>
-            <p className="text-xl text-zinc-600 max-w-2xl mx-auto mb-12">
-              Join our community to receive weekly updates on branding trends, AI innovations, and industry insights.
+            <p className="text-2xl text-zinc-500 max-w-2xl mx-auto mb-16 font-medium leading-relaxed">
+              Get weekly insights on design, technology, and strategy delivered straight to your inbox.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto">
+            <div className="flex flex-col sm:flex-row gap-6 max-w-2xl mx-auto relative group">
               <input
                 type="email"
-                placeholder="Your email address"
-                className="flex-grow h-24 rounded-full border border-zinc-300 focus:outline-none focus:ring-2 focus:ring-violet-600 px-8 text-center"
+                placeholder="email@example.com"
+                className="flex-grow h-24 rounded-full border-2 border-zinc-200 focus:border-black focus:outline-none px-12 text-xl font-medium transition-all bg-white"
               />
-              <button className="h-24 w-24 rounded-full bg-black text-white flex items-center justify-center hover:bg-gradient-to-r hover:from-violet-600 hover:to-indigo-600 hover:scale-105 transition-all group">
-                <ArrowRight size={40} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+              <button className="h-24 px-12 rounded-full bg-black text-white flex items-center justify-center hover:bg-zinc-800 transition-all group font-bold text-xl shadow-2xl">
+                Subscribe <ArrowRight size={24} className="ml-4 group-hover:translate-x-1 transition-transform" />
               </button>
             </div>
           </div>
@@ -250,20 +200,23 @@ export const Journals = ({ setActivePage }: JournalsProps) => {
 
       {/* Article Detail Modal */}
       {selectedArticle && (
-        <div className="fixed inset-0 z-[1000] bg-black/90 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
-          <div className="relative max-w-4xl w-full bg-white rounded-3xl overflow-hidden max-h-[90vh] flex flex-col">
-            <div className="p-6 border-b border-zinc-200 flex justify-between items-center">
-              <h2 className="text-2xl font-black uppercase italic tracking-tighter">{selectedArticle.title}</h2>
+        <div className="fixed inset-0 z-[1000] bg-black/95 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto">
+          <div className="relative max-w-5xl w-full bg-white rounded-[3rem] overflow-hidden max-h-[90vh] flex flex-col shadow-2xl">
+            <div className="p-8 border-b border-zinc-100 flex justify-between items-center bg-white sticky top-0 z-10">
+              <div className="pr-12">
+                <span className="text-blue-600 font-bold uppercase tracking-widest text-xs block mb-2">{selectedArticle.date}</span>
+                <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-zinc-900 uppercase">{selectedArticle.title}</h2>
+              </div>
               <button
                 onClick={closeArticle}
-                className="p-2 hover:bg-zinc-100 rounded-full transition-colors"
+                className="p-4 hover:bg-zinc-50 rounded-full transition-colors order-last"
               >
-                <X size={20} />
+                <X size={28} />
               </button>
             </div>
 
-            <div className="p-6 overflow-y-auto flex-grow">
-              <div className="aspect-video rounded-2xl overflow-hidden mb-6">
+            <div className="p-8 md:p-12 overflow-y-auto flex-grow bg-white">
+              <div className="aspect-video rounded-[2.5rem] overflow-hidden mb-12 bg-zinc-50">
                 <ImageWithFallback
                   src={selectedArticle.img}
                   alt={selectedArticle.title}
@@ -271,23 +224,23 @@ export const Journals = ({ setActivePage }: JournalsProps) => {
                 />
               </div>
 
-              <div className="text-zinc-500 text-sm font-bold uppercase tracking-widest mb-4">{selectedArticle.date}</div>
-
-              <div className="prose prose-lg max-w-none">
-                {selectedArticle.content.split('\n\n').map((paragraph, idx) => (
-                  <p key={idx} className="mb-4 text-zinc-800 leading-relaxed">
-                    {paragraph}
-                  </p>
-                ))}
+              <div className="max-w-3xl mx-auto">
+                <div className="prose prose-xl prose-zinc max-w-none">
+                  {selectedArticle.content.split('\n\n').map((paragraph, idx) => (
+                    <p key={idx} className="mb-8 text-zinc-600 leading-relaxed font-medium text-xl">
+                      {paragraph}
+                    </p>
+                  ))}
+                </div>
               </div>
             </div>
 
-            <div className="p-6 border-t border-zinc-200">
+            <div className="p-8 border-t border-zinc-100 bg-zinc-50 flex justify-end">
               <button
                 onClick={closeArticle}
-                className="w-full py-4 bg-black text-white font-black uppercase tracking-[0.2em] text-[10px] hover:bg-gradient-to-r hover:from-violet-600 hover:to-indigo-600 transition-colors"
+                className="px-12 py-5 bg-black text-white font-bold uppercase tracking-widest text-sm hover:bg-zinc-800 transition-colors rounded-full shadow-lg"
               >
-                Close Article
+                Close Story
               </button>
             </div>
           </div>

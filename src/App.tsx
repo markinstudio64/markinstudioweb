@@ -72,7 +72,7 @@ function App() {
   };
 
   return (
-    <div className="bg-white font-sans selection:bg-violet-600 selection:text-white">
+    <div className="bg-white font-sans selection:bg-black selection:text-white">
       <Analytics />
       <div className="noise-overlay" />
       <Navigation activePage={activePage} setActivePage={setActivePage} />
@@ -89,42 +89,42 @@ function App() {
         </motion.div>
       </AnimatePresence>
 
-      <footer className="pt-64 pb-20 bg-zinc-50 text-zinc-900 px-6 md:px-12 overflow-hidden relative border-t border-zinc-200">
+      <footer className="pt-64 pb-20 bg-white text-zinc-900 px-6 md:px-12 overflow-hidden relative border-t border-zinc-100">
         <div className="container mx-auto">
-          {/* GIANT KINETIC TEXT */}
-          <div className="mb-48 relative">
+          {/* GIANT TEXT */}
+          <div className="mb-48 relative overflow-hidden">
             <motion.div
-              initial={{ x: "-50%" }}
+              initial={{ x: "-20%" }}
               whileInView={{ x: "0%" }}
               transition={{ duration: 2, ease: [0.16, 1, 0.3, 1] }}
               className="flex whitespace-nowrap"
             >
-              <h2 className="text-[clamp(4rem,22vw,24rem)] font-black uppercase tracking-tighter italic leading-[0.7] text-zinc-200">
+              <h2 className="text-[clamp(4rem,22vw,24rem)] font-bold uppercase tracking-tighter leading-[0.7] text-zinc-100">
                 Engineering Value • Engineering Value • Engineering Value
               </h2>
             </motion.div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-24 pt-24 border-t border-zinc-200">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-24 pt-24 border-t border-zinc-100">
             <div className="space-y-12">
               <div className="flex items-center gap-3">
-                <span className="text-xl md:text-2xl font-black tracking-tighter uppercase leading-none text-zinc-900">
-                  Markin Studio<span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-indigo-600 text-xs">®</span>
+                <span className="text-2xl font-bold tracking-tight uppercase leading-none text-zinc-900">
+                  Markin Studio<span className="text-blue-600 text-xs">®</span>
                 </span>
               </div>
-              <p className="text-zinc-500 font-medium leading-relaxed max-w-[200px]">
-                Architecting the future of visual and cognitive brand autonomy.
+              <p className="text-zinc-500 font-medium leading-relaxed max-w-[240px]">
+                Architecting the future of visual and cognitive brand autonomy through engineering and design excellence.
               </p>
             </div>
 
             <div>
-              <span className="text-[10px] font-black uppercase tracking-widest text-zinc-400 block mb-12">Navigation</span>
+              <span className="text-xs font-bold uppercase tracking-widest text-zinc-400 block mb-12">Navigation</span>
               <ul className="space-y-6">
-                {["Home", "Capabilities", "Archive", "Studio", "Insights"].map(item => (
+                {["Home", "Services", "Work", "Studio", "Journals"].map(item => (
                   <li key={item}>
                     <button
-                      onClick={() => setActivePage(item.toLowerCase() === 'capabilities' ? 'services' : item.toLowerCase() === 'archive' ? 'work' : item.toLowerCase() === 'insights' ? 'journals' : item.toLowerCase())}
-                      className="text-base md:text-2xl font-black uppercase italic hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-violet-600 hover:to-indigo-600 transition-colors cursor-pointer block"
+                      onClick={() => setActivePage(item.toLowerCase())}
+                      className="text-2xl font-bold uppercase text-zinc-900 hover:text-blue-600 transition-colors cursor-pointer block"
                     >
                       {item}
                     </button>
@@ -134,10 +134,10 @@ function App() {
             </div>
 
             <div>
-              <span className="text-[10px] font-black uppercase tracking-widest text-zinc-400 block mb-12">Collective</span>
+              <span className="text-xs font-bold uppercase tracking-widest text-zinc-400 block mb-12">Collective</span>
               <ul className="space-y-6">
                 {[
-                  { name: "LinkedIn", url: "https://www.linkedin.com/company/markinstudio/?viewAsMember=true" },
+                  { name: "LinkedIn", url: "https://www.linkedin.com/company/markinstudio/" },
                   { name: "Instagram", url: "https://www.instagram.com/markinstudio1/" },
                   { name: "Pinterest", url: "https://www.pinterest.com/markinstudio64/" },
                   { name: "Behance", url: "https://www.behance.net/markinstudio" },
@@ -148,7 +148,7 @@ function App() {
                       href={item.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-base md:text-2xl font-black uppercase italic hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-violet-600 hover:to-indigo-600 transition-colors block"
+                      className="text-2xl font-bold uppercase text-zinc-900 hover:text-blue-600 transition-colors block"
                     >
                       {item.name}
                     </a>
@@ -159,13 +159,13 @@ function App() {
 
             <div className="space-y-12">
               <div>
-                <span className="text-[10px] font-black uppercase tracking-widest text-zinc-400 block mb-6">Inquiries</span>
-                <p className="text-base md:text-xl font-black italic mb-2 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-violet-600 hover:to-indigo-600 transition-colors cursor-pointer break-all">markinstudio64@gmail.com</p>
-                <p className="text-base md:text-xl font-black italic hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-violet-600 hover:to-indigo-600 transition-colors cursor-pointer">+923370660803</p>
+                <span className="text-xs font-bold uppercase tracking-widest text-zinc-400 block mb-6">Inquiries</span>
+                <p className="text-xl font-bold text-zinc-900 mb-2 hover:text-blue-600 transition-colors cursor-pointer break-all uppercase">markinstudio64@gmail.com</p>
+                <p className="text-xl font-bold text-zinc-900 hover:text-blue-600 transition-colors cursor-pointer uppercase">+92 337 0660803</p>
               </div>
 
-              <div className="pt-12 border-t border-zinc-200">
-                <p className="text-[8px] font-black uppercase tracking-[0.4em] text-zinc-400">
+              <div className="pt-12 border-t border-zinc-100">
+                <p className="text-[10px] font-bold uppercase tracking-widest text-zinc-300">
                   © 2026 MARKIN AGENCY — ALL RIGHTS RESERVED
                 </p>
               </div>

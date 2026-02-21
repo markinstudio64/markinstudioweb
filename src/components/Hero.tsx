@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Sparkles, Cpu, Play } from "lucide-react";
+import { ArrowRight, Cpu, Play } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 
 export const Hero = () => {
@@ -10,29 +10,31 @@ export const Hero = () => {
       <div className="absolute bottom-[-20%] left-[-10%] w-[600px] h-[600px] bg-blue-50/40 blur-[100px] rounded-full pointer-events-none" />
 
       <div className="container mx-auto px-6 relative z-10 flex flex-col items-center text-center max-w-5xl">
-
-        {/* Badge */}
+        {/* Design Subscription Badge */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="inline-flex items-center gap-2 bg-white/60 backdrop-blur-md border border-violet-100 text-violet-700 px-4 py-1.5 rounded-full text-sm font-semibold mb-8 shadow-sm"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}
+          className="mb-8"
         >
-          <Sparkles size={14} className="fill-violet-200" />
-          <span>Redefining Digital Identity</span>
+          <a
+            href="#subscription"
+            className="inline-flex items-center gap-2 bg-[#84EF03] text-black px-4 py-2 rounded-full text-sm font-bold shadow-lg hover:scale-105 transition-transform"
+          >
+            Check out our Design Subscription
+            <ArrowRight size={16} />
+          </a>
         </motion.div>
 
         {/* Main Heading */}
         <motion.h1
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="text-6xl md:text-8xl font-bold leading-[1.1] mb-8 tracking-tight text-zinc-900"
+          className="text-6xl md:text-[5.5rem] font-bold leading-[1] mb-8 tracking-tight text-zinc-900"
         >
-          Elevate Your Brand <br />
-          <span className="bg-gradient-to-r from-violet-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent italic pr-2">
-            with AI Intelligence.
-          </span>
+          We make apps, <br />
+          <span className="text-zinc-400">websites & brands</span>
         </motion.h1>
 
         {/* Subtext */}
@@ -40,9 +42,9 @@ export const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-xl md:text-2xl text-zinc-500 mb-10 max-w-2xl leading-relaxed font-light"
+          className="text-xl md:text-2xl text-zinc-500 mb-12 max-w-2xl leading-relaxed"
         >
-          Markin Studio combines world-class branding aesthetics with cutting-edge AI automation to scale your business into the future.
+          A world-class design agency for world-class companies. We design products with startups and leaders like Apple, Google & more.
         </motion.p>
 
         {/* Buttons */}
@@ -50,16 +52,20 @@ export const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="flex flex-col sm:flex-row items-center gap-4"
+          className="flex flex-col sm:flex-row items-center gap-6"
         >
-          <button className="bg-black text-white px-8 py-4 rounded-full font-bold flex items-center justify-center gap-2 group hover:bg-zinc-800 hover:scale-105 transition-all shadow-xl shadow-zinc-200">
-            View Our Work
-            <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+          <button className="bg-black text-white px-10 py-5 rounded-full font-bold flex items-center justify-center gap-3 group hover:bg-zinc-800 transition-all text-lg shadow-2xl">
+            Let's Talk
+            <div className="bg-white/10 p-1 rounded-full group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">
+              <ArrowRight size={20} className="-rotate-45" />
+            </div>
           </button>
 
-          <button className="bg-white text-zinc-900 border border-zinc-200 px-8 py-4 rounded-full font-bold flex items-center justify-center gap-2 hover:bg-zinc-50 hover:border-zinc-300 transition-all shadow-sm">
-            <Play size={18} className="fill-black" />
-            How It Works
+          <button className="text-zinc-900 font-bold flex items-center justify-center gap-2 group hover:text-zinc-600 transition-all text-lg">
+            View Our Work
+            <div className="w-8 h-8 rounded-full border border-zinc-200 flex items-center justify-center group-hover:border-zinc-400 transition-all">
+              <Play size={14} className="fill-black ml-0.5" />
+            </div>
           </button>
         </motion.div>
       </div>

@@ -125,30 +125,30 @@ export const Studio = () => {
             className="max-w-[1400px]"
           >
             <div className="flex items-center gap-4 mb-12">
-              <span className="text-[10px] font-black uppercase tracking-[0.5em] text-violet-600">Established 2024</span>
+              <span className="text-xs font-bold uppercase tracking-[0.2em] text-zinc-400">Established 2024</span>
               <div className="h-px flex-1 bg-zinc-100" />
             </div>
 
-            <h1 className="text-[clamp(4rem,14vw,12rem)] font-black uppercase tracking-tighter italic leading-[0.8] mb-24">
-              Designing <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-indigo-600 italic">Autonomy.</span>
+            <h1 className="text-6xl md:text-9xl font-bold tracking-tight leading-[0.9] mb-24 text-zinc-900">
+              Designing <br /> <span className="text-zinc-300">Autonomy.</span>
             </h1>
 
-            <div className="grid lg:grid-cols-2 gap-24 items-start">
-              <p className="text-3xl md:text-5xl font-medium tracking-tight leading-[1.1] text-zinc-900">
+            <div className="grid lg:grid-cols-2 gap-24 items-start border-t border-zinc-100 pt-12">
+              <p className="text-3xl md:text-5xl font-bold tracking-tight leading-[1.1] text-zinc-900">
                 Markin Studio is a multidisciplinary engineering and design firm operating at the edge of cultural and technological shifts.
               </p>
               <div className="space-y-12">
-                <p className="text-xl text-zinc-500 leading-relaxed">
+                <p className="text-xl text-zinc-500 leading-relaxed font-medium">
                   We specialize in building the cognitive and visual frameworks for the next generation of industry leaders. Our work is defined by a relentless pursuit of technical excellence and emotional resonance.
                 </p>
                 <div className="grid grid-cols-2 gap-8">
                   <div>
-                    <span className="text-3xl font-black block mb-2">14+</span>
-                    <span className="text-[10px] font-black uppercase tracking-widest text-zinc-400">Core Engineers</span>
+                    <span className="text-4xl font-bold block mb-2">14+</span>
+                    <span className="text-xs font-bold uppercase tracking-widest text-zinc-400">Core Engineers</span>
                   </div>
                   <div>
-                    <span className="text-3xl font-black block mb-2">120+</span>
-                    <span className="text-[10px] font-black uppercase tracking-widest text-zinc-400">Global Partners</span>
+                    <span className="text-4xl font-bold block mb-2">120+</span>
+                    <span className="text-xs font-bold uppercase tracking-widest text-zinc-400">Global Partners</span>
                   </div>
                 </div>
               </div>
@@ -157,16 +157,16 @@ export const Studio = () => {
         </div>
       </section>
 
-      {/* 2. THE MANIFESTO (Large Image & Text) */}
-      <section className="py-48 bg-zinc-50 text-zinc-900 px-6 md:px-12 overflow-hidden">
+      {/* 2. THE MANIFESTO */}
+      <section className="py-48 bg-white text-zinc-900 px-6 md:px-12 overflow-hidden border-y border-zinc-50">
         <div className="container mx-auto">
           <div className="grid lg:grid-cols-12 gap-24 items-center">
             <div className="lg:col-span-7">
               <motion.div
-                initial={{ scale: 1.1, opacity: 0 }}
-                whileInView={{ scale: 1, opacity: 1 }}
-                transition={{ duration: 1.5 }}
-                className="rounded-[4rem] overflow-hidden grayscale hover:grayscale-0 transition-all duration-1000 aspect-square"
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 1 }}
+                className="rounded-[3rem] overflow-hidden aspect-video bg-zinc-50"
               >
                 <ImageWithFallback
                   src="/assets/image1.png"
@@ -176,11 +176,11 @@ export const Studio = () => {
               </motion.div>
             </div>
             <div className="lg:col-span-5">
-              <span className="text-violet-600 font-bold uppercase tracking-[0.4em] text-[10px] block mb-12">Manifesto</span>
-              <h2 className="text-5xl font-black uppercase italic tracking-tighter leading-none mb-12">
-                The machine <br /> has a <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-indigo-600">soul.</span>
+              <span className="text-blue-600 font-bold uppercase tracking-[0.2em] text-xs block mb-12">Manifesto</span>
+              <h2 className="text-5xl md:text-7xl font-bold tracking-tight leading-none mb-12 text-zinc-900 uppercase">
+                The machine <br /> has a <span className="text-zinc-300">soul.</span>
               </h2>
-              <div className="space-y-8 text-xl text-zinc-500 font-medium leading-relaxed">
+              <div className="space-y-8 text-xl text-zinc-500 font-medium leading-relaxed uppercase tracking-tight">
                 <p>We believe that Artificial Intelligence is the greatest creative tool ever conceived—not a replacement for the human spirit, but an amplifier for it.</p>
                 <p>Our role is to bridge the gap between algorithmic logic and human intuition, creating brands that aren't just seen, but felt.</p>
                 <p>Every line of code we write and every pixel we push serves one ultimate purpose: to make the future feel inevitable.</p>
@@ -190,63 +190,63 @@ export const Studio = () => {
         </div>
       </section>
 
-      {/* 3. CORE VALUES GRID */}
-      <section className="py-48 px-6 md:px-12">
+      {/* 3. CORE PRINCIPLES */}
+      <section className="py-48 px-6 md:px-12 bg-white">
         <div className="container mx-auto">
           <div className="mb-32">
-            <h2 className="text-7xl font-black uppercase italic tracking-tighter">Core Principles.</h2>
+            <h2 className="text-6xl md:text-8xl font-bold tracking-tight text-zinc-900 uppercase">Core Principles.</h2>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-[1px] bg-zinc-100 border border-zinc-100">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { icon: <Cpu size={40} />, t: "AI Native", d: "Built from the ground up to leverage neural networks." },
-              { icon: <Globe size={40} />, t: "Global Vision", d: "Operating beyond borders for world-scale impact." },
-              { icon: <Layers size={40} />, t: "Technical Depth", d: "Deep engineering meets high-end aesthetics." },
-              { icon: <Zap size={40} />, t: "Radical Speed", d: "Autonomous workflows for lightning deployment." }
+              { icon: <Cpu size={32} />, t: "AI Native", d: "Built from the ground up to leverage neural networks." },
+              { icon: <Globe size={32} />, t: "Global Vision", d: "Operating beyond borders for world-scale impact." },
+              { icon: <Layers size={32} />, t: "Technical Depth", d: "Deep engineering meets high-end aesthetics." },
+              { icon: <Zap size={32} />, t: "Radical Speed", d: "Autonomous workflows for lightning deployment." }
             ].map((v, i) => (
-              <div key={i} className="bg-white p-12 group hover:bg-gradient-to-r hover:from-violet-600 hover:to-indigo-600 hover:text-white transition-all duration-500">
-                <div className="mb-12 text-violet-600 group-hover:text-white transition-colors">
+              <div key={i} className="p-12 group bg-zinc-50 rounded-[3rem] border border-zinc-100 hover:border-blue-600 transition-all duration-700">
+                <div className="mb-10 text-blue-600">
                   {v.icon}
                 </div>
-                <h3 className="text-2xl font-black uppercase italic mb-6">{v.t}</h3>
-                <p className="text-zinc-500 group-hover:text-violet-100 leading-tight">{v.d}</p>
+                <h3 className="text-2xl font-bold uppercase mb-6 text-zinc-900">{v.t}</h3>
+                <p className="text-zinc-500 font-medium leading-relaxed">{v.d}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 4. PROCESS (Step by Step) */}
-      <section className="py-48 px-6 md:px-12 bg-zinc-50">
+      {/* 4. PROCESS */}
+      <section className="py-48 px-6 md:px-12 bg-zinc-50 rounded-[4rem]">
         <div className="container mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-end mb-32 gap-12">
-            <h2 className="text-7xl md:text-9xl font-black uppercase italic tracking-tighter leading-none">
-              How we <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-zinc-300 to-zinc-400">Engineer.</span>
+            <h2 className="text-6xl md:text-9xl font-bold tracking-tight leading-[0.9] text-zinc-900 uppercase">
+              How we <br /> <span className="text-zinc-300">Engineer.</span>
             </h2>
-            <p className="max-w-sm text-zinc-500 font-medium italic">Our five-phase framework for systematic transformation.</p>
+            <p className="max-w-sm text-zinc-500 font-bold uppercase tracking-widest text-xs">Our five-phase framework for systematic transformation.</p>
           </div>
 
-          <div className="space-y-32">
+          <div className="space-y-12">
             {[
-              { step: "01", title: "Discovery & Strategy", desc: "We immerse ourselves in your business, understanding your market position, competitive landscape, and growth objectives to define a strategic roadmap." },
-              { step: "02", title: "Brand Foundation", desc: "We craft your visual identity system—logo, typography, color palette, and brand guidelines that communicate your unique value proposition." },
-              { step: "03", title: "Digital Architecture", desc: "We design and develop your digital ecosystem, from websites to applications, ensuring seamless user experiences across all touchpoints." },
-              { step: "04", title: "Automation Integration", desc: "We implement AI-powered solutions and automated workflows to streamline operations and enhance customer engagement." },
-              { step: "05", title: "Launch & Optimization", desc: "We deploy your brand with comprehensive analytics and continuously refine based on performance data and market feedback." }
+              { step: "01", title: "Discovery", desc: "We immerse ourselves in your business, understanding your market position, competitive landscape, and growth objectives to define a strategic roadmap." },
+              { step: "02", title: "Foundation", desc: "We craft your visual identity system—logo, typography, color palette, and brand guidelines that communicate your unique value proposition." },
+              { step: "03", title: "Architecture", desc: "We design and develop your digital ecosystem, from websites to applications, ensuring seamless user experiences across all touchpoints." },
+              { step: "04", title: "Integration", desc: "We implement AI-powered solutions and automated workflows to streamline operations and enhance customer engagement." },
+              { step: "05", title: "Optimization", desc: "We deploy your brand with comprehensive analytics and continuously refine based on performance data and market feedback." }
             ].map((s, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                className="grid lg:grid-cols-12 gap-12 items-start"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                className="grid lg:grid-cols-12 gap-12 items-center py-12 border-b border-zinc-200 group cursor-pointer"
               >
                 <div className="lg:col-span-1">
-                  <span className="text-6xl font-black italic text-zinc-200">{s.step}</span>
+                  <span className="text-4xl font-bold text-zinc-200 group-hover:text-blue-600 transition-colors">{s.step}</span>
                 </div>
                 <div className="lg:col-span-4">
-                  <h3 className="text-4xl font-black uppercase italic tracking-tighter">{s.title}</h3>
+                  <h3 className="text-3xl font-bold uppercase tracking-tight text-zinc-900">{s.title}</h3>
                 </div>
                 <div className="lg:col-span-7">
-                  <p className="text-2xl text-zinc-500 leading-tight font-medium max-w-2xl">{s.desc}</p>
+                  <p className="text-lg text-zinc-500 leading-relaxed font-medium">{s.desc}</p>
                 </div>
               </motion.div>
             ))}
@@ -254,28 +254,28 @@ export const Studio = () => {
         </div>
       </section>
 
-      {/* 5. TEAM (Minimal & Chic) */}
+      {/* 5. TEAM */}
       <section className="py-48 px-6 md:px-12 bg-white">
         <div className="container mx-auto">
           <div className="flex justify-between items-center mb-24">
-            <h2 className="text-5xl font-black uppercase italic tracking-tighter">Leadership.</h2>
+            <h2 className="text-5xl md:text-7xl font-bold tracking-tight text-zinc-900 uppercase">Leadership.</h2>
             <Users size={32} />
           </div>
-          <div className="grid md:grid-cols-3 gap-12">
+          <div className="grid md:grid-cols-3 gap-16">
             {leadersInfo.map((person, i) => (
               <div
                 key={i}
                 className="group cursor-pointer"
                 onClick={() => openLeaderProfile(person)}
               >
-                <div className="aspect-[3/4] rounded-3xl overflow-hidden mb-8 grayscale group-hover:grayscale-0 transition-all duration-700">
-                  <ImageWithFallback src={person.img} alt={person.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" />
+                <div className="aspect-[4/5] rounded-[2.5rem] overflow-hidden mb-8 bg-zinc-100">
+                  <ImageWithFallback src={person.img} alt={person.name} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
                 </div>
-                <h4 className="text-2xl font-black uppercase italic tracking-tighter mb-2">{person.name}</h4>
-                <span className="text-[10px] font-black uppercase tracking-widest text-zinc-400 block mb-4">{person.role}</span>
-                <a href={person.linkedin} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-violet-600 hover:text-violet-800 transition-colors">
+                <h4 className="text-2xl font-bold tracking-tight text-zinc-900 mb-2 uppercase">{person.name}</h4>
+                <span className="text-xs font-bold uppercase tracking-widest text-zinc-400 block mb-4">{person.role}</span>
+                <a href={person.linkedin} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-blue-600 hover:text-blue-800 transition-colors">
                   <Linkedin size={16} />
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-indigo-600">LinkedIn</span>
+                  <span>LinkedIn</span>
                 </a>
               </div>
             ))}
@@ -287,23 +287,23 @@ export const Studio = () => {
       {selectedLeader && (
         <div className="fixed inset-0 z-[999] bg-black/90 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
           <div className="relative max-w-4xl w-full bg-white rounded-3xl overflow-hidden max-h-[90vh] flex flex-col">
-            <div className="p-6 border-b border-zinc-200 flex justify-between items-center">
+            <div className="p-8 border-b border-zinc-100 flex justify-between items-center">
               <div>
-                <h2 className="text-2xl font-black uppercase italic tracking-tighter">{selectedLeader.name}</h2>
-                <span className="text-sm font-bold uppercase tracking-widest text-zinc-500">{selectedLeader.role}</span>
+                <h2 className="text-3xl font-bold uppercase tracking-tight text-zinc-900">{selectedLeader.name}</h2>
+                <span className="text-sm font-bold uppercase tracking-widest text-zinc-400">{selectedLeader.role}</span>
               </div>
               <button
                 onClick={closeLeaderProfile}
-                className="p-2 hover:bg-zinc-100 rounded-full transition-colors"
+                className="p-3 hover:bg-zinc-50 rounded-full transition-colors order-last"
               >
-                <X size={20} />
+                <X size={24} />
               </button>
             </div>
 
-            <div className="p-6 overflow-y-auto flex-grow">
-              <div className="flex flex-col md:flex-row gap-8">
+            <div className="p-8 overflow-y-auto flex-grow">
+              <div className="flex flex-col md:flex-row gap-12">
                 <div className="md:w-1/3 flex justify-center">
-                  <div className="aspect-[3/4] rounded-3xl overflow-hidden grayscale">
+                  <div className="aspect-[3/4] rounded-3xl overflow-hidden bg-zinc-100">
                     <ImageWithFallback
                       src={selectedLeader.img}
                       alt={selectedLeader.name}
@@ -312,74 +312,63 @@ export const Studio = () => {
                   </div>
                 </div>
 
-                <div className="md:w-2/3">
-                  <div className="mb-8">
-                    <h3 className="text-xl font-black uppercase italic tracking-tighter mb-4">Education</h3>
-                    <ul className="space-y-3">
-                      {selectedLeader.education.map((edu, idx) => (
-                        <li key={idx} className="text-zinc-600 leading-relaxed flex items-start">
-                          <span className="mr-2">•</span>
-                          <span>{edu}</span>
-                        </li>
-                      ))}
-                    </ul>
+                <div className="md:w-2/3 space-y-10">
+                  <div className="grid md:grid-cols-2 gap-12">
+                    <div>
+                      <h3 className="text-xs font-bold uppercase tracking-widest text-zinc-400 mb-6">Education</h3>
+                      <ul className="space-y-4">
+                        {selectedLeader.education.map((edu, idx) => (
+                          <li key={idx} className="text-zinc-600 font-medium leading-relaxed">{edu}</li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h3 className="text-xs font-bold uppercase tracking-widest text-zinc-400 mb-6">Certifications</h3>
+                      <ul className="space-y-4">
+                        {selectedLeader.certifications.map((cert, idx) => (
+                          <li key={idx} className="text-zinc-600 font-medium leading-relaxed">{cert}</li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
 
-                  <div className="mb-8">
-                    <h3 className="text-xl font-black uppercase italic tracking-tighter mb-4">Certifications</h3>
-                    <ul className="space-y-3">
-                      {selectedLeader.certifications.map((cert, idx) => (
-                        <li key={idx} className="text-zinc-600 leading-relaxed flex items-start">
-                          <span className="mr-2">•</span>
-                          <span>{cert}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                  <div className="grid md:grid-cols-2 gap-12">
+                    <div>
+                      <h3 className="text-xs font-bold uppercase tracking-widest text-zinc-400 mb-6">Experience</h3>
+                      <ul className="space-y-4">
+                        {selectedLeader.experiences.map((exp, idx) => (
+                          <li key={idx} className="text-zinc-600 font-medium leading-relaxed">{exp}</li>
+                        ))}
+                      </ul>
+                    </div>
 
-                  <div className="mb-8">
-                    <h3 className="text-xl font-black uppercase italic tracking-tighter mb-4">Experience</h3>
-                    <ul className="space-y-3">
-                      {selectedLeader.experiences.map((exp, idx) => (
-                        <li key={idx} className="text-zinc-600 leading-relaxed flex items-start">
-                          <span className="mr-2">•</span>
-                          <span>{exp}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="mb-8">
-                    <h3 className="text-xl font-black uppercase italic tracking-tighter mb-4">Achievements</h3>
-                    <ul className="space-y-3">
-                      {selectedLeader.achievements.map((achievement, idx) => (
-                        <li key={idx} className="text-zinc-600 leading-relaxed flex items-start">
-                          <span className="mr-2">•</span>
-                          <span>{achievement}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="pt-4 border-t border-zinc-200">
-                    <a
-                      href={selectedLeader.linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-violet-600 hover:text-violet-800 transition-colors"
-                    >
-                      <Linkedin size={16} />
-                      <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-indigo-600">Connect on LinkedIn</span>
-                    </a>
+                    <div>
+                      <h3 className="text-xs font-bold uppercase tracking-widest text-zinc-400 mb-6">Achievements</h3>
+                      <ul className="space-y-4">
+                        {selectedLeader.achievements.map((achievement, idx) => (
+                          <li key={idx} className="text-zinc-600 font-medium leading-relaxed">{achievement}</li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="p-6 border-t border-zinc-200">
+            <div className="p-8 border-t border-zinc-100 bg-zinc-50 flex justify-between items-center">
+              <a
+                href={selectedLeader.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-3 text-sm font-bold uppercase tracking-widest text-blue-600 hover:text-blue-800 transition-colors"
+              >
+                <Linkedin size={20} />
+                <span>Connect via LinkedIn</span>
+              </a>
               <button
                 onClick={closeLeaderProfile}
-                className="w-full py-4 bg-black text-white font-black uppercase tracking-[0.2em] text-[10px] hover:bg-gradient-to-r hover:from-violet-600 hover:to-indigo-600 transition-colors"
+                className="px-8 py-4 bg-black text-white font-bold uppercase tracking-widest text-xs hover:bg-zinc-800 transition-colors rounded-full"
               >
                 Close Profile
               </button>

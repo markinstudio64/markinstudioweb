@@ -12,10 +12,10 @@ export const Navigation = ({ activePage, setActivePage }: NavigationProps) => {
 
   const links = [
     { id: "home", label: "Home" },
-    { id: "services", label: "Capabilities" },
-    { id: "work", label: "Archive" },
-    { id: "studio", label: "Studio" },
-    { id: "journals", label: "Insights" },
+    { id: "services", label: "Services" },
+    { id: "work", label: "Work" },
+    { id: "studio", label: "Why Orizon" },
+    { id: "journals", label: "Blog" },
   ];
 
   return (
