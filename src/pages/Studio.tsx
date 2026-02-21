@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
-import { X, Linkedin, Instagram, Brain, Zap, Target, Users } from "lucide-react";
+import { X, Linkedin, Instagram, Brain, Zap, Target } from "lucide-react";
 import { CharReveal, TextReveal } from "../components/TextReveal";
 
 // Leader profile type
