@@ -3,53 +3,24 @@
 @theme {
   --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "Inter", ui-mono, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-
-  /* Updated Theme Colors */
-  --color-primary: #101820FF;
-  --color-secondary: #F2AA4CFF;
-  --color-background: #101820FF;
-  --color-surface: #17212b;
-  --color-text: #ffffff;
-  --color-muted: #c7c7c7;
-  --color-border: rgba(242, 170, 76, 0.15);
 }
 
 :root {
-  /* Main Theme Colors */
-  --foreground-rgb: 255, 255, 255;
-  --background-start-rgb: 16, 24, 32;
-  --background-end-rgb: 16, 24, 32;
-
-  /* Accent Variables */
-  --primary-color: #101820FF;
-  --secondary-color: #F2AA4CFF;
-  --surface-color: #17212b;
-  --text-color: #ffffff;
-  --muted-color: #c7c7c7;
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
 }
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-    180deg,
-    rgb(var(--background-start-rgb)) 0%,
-    rgb(var(--background-end-rgb)) 100%
-  );
+  background: white;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   cursor: auto;
 }
 
-/* Links & Buttons */
-a,
-button {
+a, button {
   cursor: pointer;
-  transition: all 0.25s ease;
-}
-
-a:hover,
-button:hover {
-  color: var(--secondary-color);
 }
 
 /* Texture Overlay for SoftRiver aesthetic */
@@ -65,13 +36,10 @@ button:hover {
   background-image: url("https://www.transparenttextures.com/patterns/pinstriped-suit.png");
 }
 
-/* Custom Cursor */
 .custom-cursor {
   mix-blend-mode: difference;
-  background-color: var(--secondary-color);
 }
 
-/* Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -81,16 +49,10 @@ button:hover {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #F2AA4CFF;
+  background: #e2e2e2;
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #d89236;
-}
-
-/* Selection */
-::selection {
-  background: #F2AA4CFF;
-  color: #101820FF;
+  background: #888;
 }
